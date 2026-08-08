@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kishoreganj District Rover – Anniversary Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="কিশোরগঞ্জ জেলা রোভার – প্রতিষ্ঠা বার্ষিকী গ্যালারি" />
+    <meta property="og:description" content="আমাদের প্রতিষ্ঠা বার্ষিকীর স্মৃতি সংরক্ষিত আছে এখানে" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.com/anniversary/kdr.anniversaries.html" />
+    <meta property="og:image" content="https://i.ibb.co/s7PcBYL/1000020937.png" />
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin:0 auto; }
+        .header {
+            background: linear-gradient(135deg, #ffffff, #fff0f0);
+            padding: 25px 20px;
+            border-bottom: 3px solid #8B0000;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 8px 30px rgba(139,0,0,0.08);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            color: #8B0000;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .header p {
+            color: #666;
+            font-size: 16px;
+            margin-top: 6px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 12px;
+            background: #8B0000;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-link:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+        }
+        .year-section {
+            margin-bottom: 40px;
+        }
+        .year-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #8B0000;
+            border-bottom: 3px solid #8B0000;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .year-title i {
+            font-size: 28px;
+            color: #cc0000;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .footer { background:var(--white); padding:30px 20px; text-align:center; border-top:1px solid #eaeaea; margin-top:-10px; border-radius:var(--radius) var(--radius) 0 0; box-shadow:0 -5px 20px rgba(0,0,0,0.03); }
+        .profile-img { width:80px; height:80px; border-radius:50%; margin-bottom:0px; border:2px solid var(--primary); box-shadow:var(--shadow); }
+        .footer-text { color:var(--text-light); font-size:14px; }
+        .footer-links a { color:var(--primary); text-decoration:none; margin:0 0px; font-weight:600; transition:var(--transition); }
+        .footer-links a:hover { color:var(--primary-light); text-decoration:underline; }
+        .social-icons { margin-top:20px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+        .social-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:var(--light-bg); color:var(--primary); text-decoration:none; transition:var(--transition); font-size:18px; }
+        .social-icon:hover { background:var(--primary); color:white; transform:translateY(-3px); }
+        .section-title { font-weight:700; margin:10px 0 10px; color:var(--accent); }
+        .social-section { outline:1px solid var(--primary); padding:5px; border-radius:12px; margin-top:20px; }
+        .gallery-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(139,0,0,0.12);
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: #f0f0f0;
+        }
+        .gallery-card .caption {
+            padding: 14px 16px 16px;
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+            border-top: 1px solid #f0f0f0;
+            background: #fafafa;
+            word-break: break-word;
+        }
+        .gallery-card .caption i {
+            color: #8B0000;
+            margin-right: 6px;
+        }
+        .gallery-card .caption .time {
+            display: block;
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+        .no-images {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 20px;
+            font-size: 18px;
+            color: #777;
+        }
+        .no-images i {
+            font-size: 60px;
+            color: #cc0000;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .footer {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+            margin-top: 30px;
+            border-top: 1px solid #eaeaea;
+        }
+        .footer-text { color: #666; font-size: 14px; }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 50px;
+        }
+        .loading.show { display: block; }
+        .spinner {
+            border: 4px solid rgba(139,0,0,0.1);
+            border-left-color: #8B0000;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 14px 24px;
+            background: #8B0000;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(139,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            z-index: 999;
+            max-width: 90%;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 22px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+            .gallery-card img { height: 160px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-images" style="color:#8B0000; margin-right:10px;"></i>কিশোরগঞ্জ জেলা রোভার – প্রতিষ্ঠা বার্ষিকী গ্যালারি</h1>
+            <p>আমাদের স্মৃতি সংরক্ষিত আছে এখানে</p>
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> প্রোফাইল মেকারে ফিরে যান</a>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading show" id="loading">
+            <div class="spinner"></div>
+            <p style="color:#8B0000; font-weight:600;">গ্যালারি লোড হচ্ছে...</p>
+        </div>
+
+        <!-- Gallery container -->
+        <div id="galleryContainer"></div>
+
+                <!-- Footer -->
+        <footer class="footer">
+            <a href="https://www.facebook.com/share/18rYDfKQjR/" title="Public Relations & ICT Taskforce">
+                <img class="profile-img" src="https://i.ibb.co/zhdxg26D/1000020862.png" alt="Public Relations & ICT Taskforce Logo" style="width:140px; height:auto; border-radius:8px; border:none; box-shadow:none;">
+            </a>
+            <div class="footer-text"><a href="https://www.facebook.com/share/18rYDfKQjR/" target="_blank" style="font-weight:700; color:var(--accent); margin-top:10px; font-size:16px; color:var(--text-light); text-decoration:none;">Public Relations & ICT Taskforce</a></div>
+            <div class="footer-links"><p style="color:var(--text-light); text-decoration:none;">Kishoreganj District Rover</p></div>
+            <div class="footer-text" style="margin-top:10px; font-size:13px;">© <span id="year"></span> Public Relations & ICT Taskforce<br>Kishoreganj District Rover<br>All Rights Reserved</div>
+            
+            </div>
+        </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase config (same as main)
+        const firebaseConfig = {
+  apiKey: "AIzaSyAZqCBb6zuD3uzhUhE8Ccbeh66wIJpOMSM",
+  authDomain: "kdr-anniversary.firebaseapp.com",
+  projectId: "kdr-anniversary",
+  storageBucket: "kdr-anniversary.firebasestorage.app",
+  messagingSenderId: "744360884581",
+  appId: "1:744360884581:web:2c51e2dd3b322288c2c98c"
+};
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        const galleryContainer = document.getElementById('galleryContainer');
+        const loadingEl = document.getElementById('loading');
+        const toast = document.getElementById('toast');
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Show toast
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        // Load and render gallery
+        async function loadGallery() {
+            loadingEl.classList.add('show');
+            try {
+                const snapshot = await db.collection('anniversaryGallery')
+                    .orderBy('uploadedAt', 'desc')
+                    .get();
+
+                if (snapshot.empty) {
+                    galleryContainer.innerHTML = `
+                        <div class="no-images">
+                            <i class="fas fa-camera-retro"></i>
+                            এখনো কোনো ছবি আপলোড হয়নি।<br />
+                            <span style="font-size:14px; color:#999;">প্রথম ছবি আপলোড করুন প্রোফাইল মেকার থেকে!</span>
+                        </div>
+                    `;
+                    loadingEl.classList.remove('show');
+                    return;
+                }
+
+                // Group by year
+                const groups = {};
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const year = data.year || new Date(data.uploadedAt?.toMillis?.() || Date.now()).getFullYear();
+                    if (!groups[year]) groups[year] = [];
+                    groups[year].push({
+                        id: doc.id,
+                        imageUrl: data.imageUrl,
+                        caption: data.caption || '',
+                        uploadedAt: data.uploadedAt
+                    });
+                });
+
+                // Sort years descending
+                const sortedYears = Object.keys(groups).sort((a, b) => b - a);
+
+                let html = '';
+                for (const year of sortedYears) {
+                    const items = groups[year];
+                    html += `<div class="year-section">`;
+                    html += `<div class="year-title"><i class="fas fa-calendar-alt"></i> ${year}</div>`;
+                    html += `<div class="gallery-grid">`;
+                    for (const item of items) {
+                        const timeStr = item.uploadedAt
+                            ? new Date(item.uploadedAt.toMillis?.() || Date.now()).toLocaleDateString('bn-BD', { day:'numeric', month:'short', year:'numeric' })
+                            : '';
+                        html += `
+                            <div class="gallery-card">
+                                <img src="${item.imageUrl}" alt="Anniversary photo" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Image+Not+Found'" />
+                                <div class="caption">
+                                    <i class="fas fa-quote-left"></i> ${escapeHtml(item.caption)}
+                                    ${timeStr ? `<span class="time"><i class="far fa-clock"></i> ${timeStr}</span>` : ''}
+                                </div>
+                            </div>
+                        `;
+                    }
+                    html += `</div></div>`;
+                }
+
+                galleryContainer.innerHTML = html;
+            } catch (error) {
+                console.error('Gallery load error:', error);
+                showToast('❌ গ্যালারি লোড করতে সমস্যা হয়েছে।');
+                galleryContainer.innerHTML = `
+                    <div class="no-images">
+                        <i class="fas fa-exclamation-triangle" style="color:#cc0000;"></i>
+                        ডেটা লোড করতে ব্যর্থ।<br />
+                        <span style="font-size:14px; color:#999;">ইন্টারনেট সংযোগ চেক করুন এবং আবার চেষ্টা করুন।</span>
+                    </div>
+                `;
+            }
+            loadingEl.classList.remove('show');
+        }
+
+        // Simple escape to prevent XSS
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Initial load
+        loadGallery();
+
+        // Refresh button (optional) — you can add a manual refresh if needed
+        // but we auto-load on page open.
+    </script>
+</body>
+</html>
