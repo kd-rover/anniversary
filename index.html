@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কিশোরগঞ্জ জেলা রোভার – Anniversary Profile Maker</title>
+    
+    <!-- 🔥 ফেভিকন (ব্রাউজার ট্যাবের আইকন) -->
+    <link rel="icon" href="https://i.ibb.co/fdHDN5k0/1000000660.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/fdHDN5k0/1000000660.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 🌐 Open Graph (সোশ্যাল মিডিয়ায় শেয়ার করার থাম্বনেইল) -->
+    <meta property="og:title" content="কিশোরগঞ্জ জেলা রোভার প্রতিষ্ঠা বার্ষিকী">
+    <meta property="og:description" content="কিশোরগঞ্জ জেলা রোভারের প্রতিষ্ঠা বার্ষিকী উৎযাপন করতে নিজের ছবি দিয়ে বিশেষ প্রতিষ্ঠা বার্ষিকী ছবি বানাও">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/anniversary/">
+    <meta property="og:image" content="https://i.ibb.co/s7PcBYL/1000020937.png">
+    <meta property="og:image:width" content="1376">
+    <meta property="og:image:height" content="768">
+    <meta property="og:site_name" content="কিশোরগঞ্জ জেলা রোভার প্রতিষ্ঠা বার্ষিকী">
+    <meta property="og:locale" content="bn_BD">
+    
+    <!-- টুইটার কার্ড (ঐচ্ছিক, কিন্তু ভালো) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://i.ibb.co/s7PcBYL/1000020937.png">
+    
+    <style>
+        :root {
+            --primary: #8B0000;
+            --primary-light: #CC0000;
+            --primary-dark: #5C0000;
+            --accent: #8B0000;
+            --light-bg: #fff5f5;
+            --white: #ffffff;
+            --text: #333333;
+            --text-light: #666666;
+            --shadow: 0 8px 30px rgba(139, 0, 0, 0.08);
+            --shadow-hover: 0 12px 40px rgba(139, 0, 0, 0.15);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+            color: var(--text);
+            line-height: 1.6;
+            padding:0;
+            min-height:100vh;
+        }
+        .container { max-width:1200px; margin:0 auto; padding:20px; }
+
+        /* Floating menu (3-line) */
+        .floating-menu {
+            position: fixed;
+            top: 18px;
+            right: 20px;
+            z-index: 9999;
+            background: linear-gradient(135deg, #1e2a3a, #0f172a);
+            backdrop-filter: blur(6px);
+            border-radius: 40px;
+            padding: 8px 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,215,0,0.4);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .floating-menu:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #0f172a, #1e2a3a);
+            border-color: rgba(255,215,0,0.8);
+        }
+        .floating-menu i {
+            font-size: 22px;
+            color: #ffec99;
+        }
+        .floating-menu .menu-label {
+            color: #ffec99;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.3px;
+        }
+        .floating-dropdown {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: #0f172a;
+            border: 1px solid rgba(255,215,0,0.4);
+            border-radius: 16px;
+            padding: 12px 0;
+            min-width: 200px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+            z-index: 9998;
+            display: none;
+            backdrop-filter: blur(10px);
+        }
+        .floating-dropdown a {
+            display: block;
+            padding: 10px 22px;
+            color: #ffec99;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            border-bottom: 1px solid rgba(255,215,0,0.1);
+        }
+        .floating-dropdown a:last-child { border-bottom: none; }
+        .floating-dropdown a:hover {
+            background: rgba(255,215,0,0.15);
+            color: #fff;
+        }
+        .floating-dropdown i {
+            margin-right: 10px;
+            width: 20px;
+        }
+        .floating-menu.active + .floating-dropdown { display: block; }
+        .floating-menu.active i.fa-bars { color: #fff; }
+
+        @media (max-width:640px) {
+            .floating-menu { top:12px; right:12px; padding:6px 12px; }
+            .floating-menu i { font-size:18px; }
+            .floating-menu .menu-label { font-size:11px; }
+            .floating-dropdown { top:60px; right:12px; min-width:160px; }
+        }
+
+        /* rest of styles (unchanged) */
+        .header {
+            background: linear-gradient(135deg, var(--white) 0%, #fff0f0 100%);
+            padding: 25px 20px;
+            border-bottom: 3px solid var(--primary);
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
+            text-align: center;
+            border-radius: 0 0 var(--radius) var(--radius);
+        }
+        .logo-container { display:flex; justify-content:center; align-items:center; margin-bottom:15px; }
+        .logo { width:140px; height:auto; border-radius:50%; box-shadow:var(--shadow); transition:var(--transition); }
+        .logo:hover { transform:translateY(-6px) scale(1.03); box-shadow:var(--shadow-hover); }
+        .header h1 { color:var(--accent); font-size:24px; margin:10px 0 5px; font-weight:700; }
+        .header p { color:var(--text-light); font-size:16px; margin-bottom:5px; }
+        .anniversary-badge {
+            display:inline-block;
+            background:linear-gradient(135deg, var(--primary), var(--primary-light));
+            color:white;
+            padding:8px 20px;
+            border-radius:30px;
+            font-weight:600;
+            margin:15px 0;
+            position:relative;
+            overflow:hidden;
+            animation:neon-pulse 2s ease-in-out infinite;
+        }
+        .anniversary-badge::before, .anniversary-badge::after {
+            content:'✦';
+            position:absolute;
+            color:#fff;
+            font-size:12px;
+            animation:neon-sparkle 1.5s linear infinite;
+            text-shadow:0 0 5px #fff,0 0 10px #fff,0 0 15px gold;
+        }
+        .anniversary-badge::before { top:5px; left:10px; animation-delay:0s; }
+        .anniversary-badge::after { bottom:5px; right:10px; animation-delay:0.75s; }
+        @keyframes neon-pulse {
+            0%,100% { box-shadow:0 4px 15px rgba(139,0,0,0.2); }
+            50% { box-shadow:0 4px 25px var(--primary), 0 0 10px var(--primary-light), 0 0 20px rgba(255,215,0,0.3); }
+        }
+        @keyframes neon-sparkle {
+            0%,100% { opacity:0; transform:scale(0); text-shadow:0 0 0px #fff; }
+            50% { opacity:1; transform:scale(1.5); text-shadow:0 0 10px #fff,0 0 20px gold,0 0 30px orange; }
+        }
+        .anniversary-date { font-family:'Baloo 2',cursive; font-size:22px; color:var(--primary); margin:10px 0 20px; font-weight:600; text-align:center; }
+        .main-content { display:flex; flex-wrap:wrap; gap:30px; margin-bottom:40px; text-align:center; }
+        .controls-panel { flex:1; min-width:300px; background:var(--white); padding:25px; border-radius:var(--radius); box-shadow:var(--shadow); }
+        .preview-panel { flex:1; min-width:300px; display:flex; flex-direction:column; align-items:center; gap:20px; }
+        .frame-container { width:450px; height:450px; position:relative; border-radius:12px; overflow:hidden; box-shadow:var(--shadow-hover); background:var(--white); cursor:pointer; transition:var(--transition); }
+        .frame-container:hover { transform:scale(1.02); }
+        canvas { width:100%; height:100%; border-radius:12px; touch-action:none; }
+        .control-group { margin-bottom:25px; }
+        .control-group label { display:block; font-weight:600; margin-bottom:8px; color:var(--accent); }
+        .control-row { display:flex; align-items:center; gap:10px; margin-top:10px; }
+        input[type="range"] { flex:1; height:6px; border-radius:3px; background:#e0e0e0; outline:none; -webkit-appearance:none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--primary); cursor:pointer; transition:var(--transition); }
+        input[type="range"]::-webkit-slider-thumb:hover { background:var(--primary-light); transform:scale(1.1); }
+        .value-display { min-width:80px; font-weight:600; color:var(--primary); }
+        .btn {
+            padding:12px 20px;
+            background:var(--primary);
+            color:var(--white);
+            border:none;
+            border-radius:var(--radius);
+            font-weight:600;
+            font-size:16px;
+            cursor:pointer;
+            transition:var(--transition);
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:8px;
+        }
+        .btn:hover { background:var(--primary-light); transform:translateY(-2px); box-shadow:0 6px 15px rgba(139,0,0,0.2); }
+        .btn-secondary { background:transparent; color:var(--primary); border:2px solid var(--primary); margin-top:10px; }
+        .btn-secondary:hover { background:rgba(139,0,0,0.05); }
+        .btn-warning { background:#ffc107; color:#212529; border:none; }
+        .btn-warning:hover { background:#e0a800; transform:translateY(-2px); }
+        .btn-icon { width:40px; height:40px; padding:0; border-radius:50%; }
+        .btn-group { display:flex; gap:10px; justify-content:center; margin-top:10px; }
+        .file-input-wrapper { position:relative; overflow:hidden; display:inline-block; width:100%; }
+        .file-input-wrapper input[type=file] { position:absolute; left:0; top:0; opacity:0; width:100%; height:100%; cursor:pointer; }
+        .file-input-label { display:block; padding:15px 20px; background:var(--light-bg); border:2px dashed var(--primary); border-radius:var(--radius); text-align:center; font-weight:600; color:var(--primary); cursor:pointer; transition:var(--transition); }
+        .file-input-label:hover { background:rgba(139,0,0,0.05); }
+        .api-status { padding:10px; border-radius:var(--radius); margin-top:10px; font-size:14px; font-weight:600; text-align:center; }
+        .api-status.connected { background:#d4edda; color:#155724; border:1px solid #c3e6cb; }
+        .api-status.disconnected { background:#f8d7da; color:#721c24; border:1px solid #f5c6cb; }
+        .api-status.processing { background:#cce7ff; color:#004085; border:1px solid #b3d7ff; }
+        .progress-bar { width:100%; height:6px; background:#e0e0e0; border-radius:3px; margin-top:10px; overflow:hidden; display:none; }
+        .progress-fill { height:100%; background:var(--primary); border-radius:3px; width:0%; transition:width 0.3s ease; }
+        .bg-removal-card { max-width:260px; margin:20px auto; padding:20px; border-radius:16px; background:linear-gradient(135deg,#f8fafc,#ffffff); box-shadow:0 10px 25px rgba(0,0,0,0.08); font-family:'Inter','Segoe UI',system-ui,sans-serif; text-align:center; transition:transform 0.3s ease,box-shadow 0.3s ease; }
+        .bg-removal-card:hover { transform:translateY(-6px); box-shadow:0 16px 30px rgba(0,0,0,0.15); }
+        .bg-removal-card h3 { font-size:16px; margin-bottom:8px; color:#1e293b; }
+        .bg-removal-card p { font-size:13px; color:#475569; margin-bottom:16px; }
+        .bg-link { display:flex; align-items:center; gap:12px; padding:12px 16px; background:#22c55e; color:white; text-decoration:none; border-radius:12px; font-weight:600; box-shadow:0 4px 12px rgba(34,197,94,0.3); transition:all 0.3s ease; }
+        .bg-link:hover { background:#16a34a; box-shadow:0 6px 18px rgba(22,163,74,0.4); }
+        .bg-link i { font-size:14px; }
+        .bg-link div { text-align:left; }
+        .bg-link div strong { display:block; }
+        .bg-link div span { font-size:11px; color:rgba(255,255,255,0.9); font-weight:400; }
+        .frame-toggle { display:flex; align-items:center; gap:10px; margin-top:10px; }
+        .toggle-switch { position:relative; display:inline-block; width:50px; height:24px; }
+        .toggle-switch input { opacity:0; width:0; height:0; }
+        .slider { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0; background-color:#ccc; transition:.4s; border-radius:24px; }
+        .slider:before { position:absolute; content:""; height:16px; width:16px; left:4px; bottom:4px; background-color:white; transition:.4s; border-radius:50%; }
+        input:checked + .slider { background-color:var(--primary); }
+        input:checked + .slider:before { transform:translateX(26px); }
+        .template-selector { background:#f8f9fa; padding:15px; border-radius:var(--radius); margin:20px 0; }
+        .template-selector h3 { color:var(--accent); margin-bottom:15px; font-size:16px; }
+        .template-buttons { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+        .template-btn { flex:1; min-width:80px; padding:10px; border:2px solid var(--primary); background:white; color:var(--primary); border-radius:var(--radius); cursor:pointer; font-weight:600; transition:var(--transition); font-size:13px; }
+        .template-btn:hover, .template-btn.active { background:var(--primary); color:white; }
+        .template-btn .badge { display:block; font-size:9px; font-weight:400; opacity:0.7; margin-top:2px; }
+        .footer { background:var(--white); padding:30px 20px; text-align:center; border-top:1px solid #eaeaea; margin-top:-10px; border-radius:var(--radius) var(--radius) 0 0; box-shadow:0 -5px 20px rgba(0,0,0,0.03); }
+        .profile-img { width:80px; height:80px; border-radius:50%; margin-bottom:0px; border:2px solid var(--primary); box-shadow:var(--shadow); }
+        .footer-text { color:var(--text-light); font-size:14px; }
+        .footer-links a { color:var(--primary); text-decoration:none; margin:0 0px; font-weight:600; transition:var(--transition); }
+        .footer-links a:hover { color:var(--primary-light); text-decoration:underline; }
+        .social-icons { margin-top:20px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+        .social-icon { display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:var(--light-bg); color:var(--primary); text-decoration:none; transition:var(--transition); font-size:18px; }
+        .social-icon:hover { background:var(--primary); color:white; transform:translateY(-3px); }
+        .section-title { font-weight:700; margin:10px 0 10px; color:var(--accent); }
+        .social-section { outline:1px solid var(--primary); padding:5px; border-radius:12px; margin-top:20px; }
+        .loading { display:none; text-align:center; padding:20px; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:10000; justify-content:center; align-items:center; flex-direction:column; }
+        .loading.show { display:flex; }
+        .spinner { border:4px solid rgba(255,255,255,0.1); border-left-color:var(--primary-light); border-radius:50%; width:50px; height:50px; animation:spin 1s linear infinite; margin:0 auto 15px; }
+        @keyframes spin { to { transform:rotate(360deg); } }
+        .loading p { color:white; font-size:18px; font-weight:600; }
+        .toast { position:fixed; bottom:20px; right:20px; padding:15px 25px; background:var(--primary); color:white; border-radius:var(--radius); box-shadow:var(--shadow-hover); transform:translateY(100px); opacity:0; transition:transform 0.3s, opacity 0.3s; z-index:1000; max-width:90%; }
+        .toast.show { transform:translateY(0); opacity:1; }
+        .hint { color:var(--text-light); font-size:14px; }
+        .image-guide { width:180px; margin:15px auto; padding:10px 15px; text-align:center; background:transparent; border-radius:16px; border:1.5px solid #f1f5f9; position:relative; backdrop-filter:blur(10px); }
+        .image-guide .guide-header { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:12px; }
+        .image-guide .guide-header .icon { width:24px; height:24px; background:linear-gradient(135deg,#dc3545,#8B0000); border-radius:6px; display:flex; align-items:center; justify-content:center; color:white; font-size:12px; }
+        .image-guide .guide-header p { font-size:13px; color:#1e293b; margin:0; font-weight:600; letter-spacing:0.5px; }
+        .image-guide .guide-img-container { position:relative; display:inline-block; margin-bottom:12px; cursor:pointer; }
+        .image-guide .guide-img-container img { width:100%; max-width:120px; height:auto; border-radius:8px; display:block; padding:8px; background:white; border-radius:0px; border:1px solid #f1f5f9; box-shadow:0 2px 12px rgba(0,0,0,0.04); transition:all 0.3s ease; }
+        .image-guide .guide-img-container .badge { position:absolute; bottom:-6px; right:-6px; background:linear-gradient(135deg,#dc3545,#8B0000); color:white; padding:4px 8px; border-radius:12px; font-size:9px; font-weight:600; box-shadow:0 2px 8px rgba(220,53,69,0.3); }
+        .image-guide .guide-list { text-align:left; background:#f8fafc; padding:12px; border-radius:8px; margin-top:-6px; }
+        .image-guide .guide-list .item { display:flex; align-items:center; gap:6px; margin-bottom:-3px; margin-top:-6px; }
+        .image-guide .guide-list .item .check { color:#dc3545; font-size:12px; }
+        .image-guide .guide-list .item span { font-size:10px; color:#475569; }
+        .image-guide .guide-footer { font-size:9px; color:#64748b; margin:10px 0 0 0; font-style:italic; line-height:1.4; }
+        .modal { display:none; position:fixed; z-index:9999; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.8); }
+        .modal .close { position:absolute; top:20px; right:35px; color:#f1f1f1; font-size:40px; font-weight:bold; cursor:pointer; }
+        .modal img { margin:auto; display:block; max-width:90%; max-height:80%; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.5); }
+        @media (max-width:768px) {
+            .main-content { flex-direction:column; }
+            .frame-container { width:300px; height:300px; }
+            .header h1 { font-size:20px; }
+            .anniversary-date { font-size:18px; }
+        }
+        @media (max-width:480px) {
+            .container { padding:10px; }
+            .frame-container { width:280px; height:280px; }
+            .logo { width:110px; }
+            .header h1 { font-size:18px; }
+            .anniversary-date { font-size:16px; }
+            .controls-panel { padding:20px 15px; }
+        }
+        /* floating menu dropdown open state */
+        .floating-menu.open i.fa-bars { color:#fff; }
+        .floating-dropdown.show { display:block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Floating 3-line menu (replaces admin button) -->
+        <div class="floating-menu" id="floatingMenu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+            <span class="menu-label">Menu</span>
+        </div>
+        <div class="floating-dropdown" id="floatingDropdown">
+            <a href="kdr.anniversaries.html"><i class="fas fa-images"></i> View Gallery</a>
+            <a href="admin.html" target="_blank"><i class="fas fa-user-shield"></i> Admin Login</a>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="https://www.facebook.com/roverkishoreganj/" title="Kishoreganj District Rover">
+                    <img class="logo" src="https://i.ibb.co/fdHDN5k0/1000000660.png" alt="Kishoreganj District Rover Logo">
+                </a>
+            </div>
+            <h1>Kishoreganj District Rover</h1>
+            <div class="anniversary-badge" id="anniversaryBadge"></div>
+            <div style="color:#8B0000; text-align:center; font-family:monospace; font-size:16px; margin-top:-5px; font-weight:bold;" id="countdownTimer"></div>
+            <script>
+                function updateAnniversary() {
+                    const foundingYear = 1990;
+                    const now = new Date();
+                    const currentYear = now.getFullYear();
+                    let anniversaryNumber;
+                    let nextAnniversaryDate;
+                    const thisYearAnniversary = new Date(currentYear, 7, 28);
+                    if (now >= thisYearAnniversary) {
+                        if (now.toDateString() === thisYearAnniversary.toDateString()) {
+                            anniversaryNumber = currentYear - foundingYear;
+                            let suffix = getOrdinalSuffix(anniversaryNumber);
+                            document.getElementById('anniversaryBadge').textContent = `Happy ${anniversaryNumber}${suffix} Anniversary! 🎉`;
+                            document.getElementById('countdownTimer').textContent = "🎊 Let's Celebrate! 🎊";
+                            return;
+                        }
+                        anniversaryNumber = currentYear - foundingYear + 1;
+                        nextAnniversaryDate = new Date(currentYear + 1, 7, 28);
+                    } else {
+                        anniversaryNumber = currentYear - foundingYear;
+                        nextAnniversaryDate = thisYearAnniversary;
+                    }
+                    const countdownStart = new Date(nextAnniversaryDate);
+                    countdownStart.setMonth(countdownStart.getMonth() - 6);
+                    let suffix = getOrdinalSuffix(anniversaryNumber);
+                    if (now >= countdownStart && now < nextAnniversaryDate) {
+                        document.getElementById('anniversaryBadge').textContent = `Countdown to ${anniversaryNumber}${suffix} Anniversary`;
+                        updateCountdown(nextAnniversaryDate);
+                    } else {
+                        document.getElementById('anniversaryBadge').textContent = `${anniversaryNumber}${suffix} Anniversary`;
+                        document.getElementById('countdownTimer').textContent = `Countdown starts ${countdownStart.toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' })}`;
+                    }
+                }
+                function getOrdinalSuffix(number) {
+                    const lastDigit = number % 10;
+                    const lastTwoDigits = number % 100;
+                    if (lastTwoDigits >= 11 && lastTwoDigits <= 13) return 'th';
+                    if (lastDigit === 1) return 'st';
+                    if (lastDigit === 2) return 'nd';
+                    if (lastDigit === 3) return 'rd';
+                    return 'th';
+                }
+                function updateCountdown(targetDate) {
+                    const now = new Date();
+                    const diff = targetDate - now;
+                    if (diff <= 0) return;
+                    const days = Math.floor(diff / (1000*60*60*24));
+                    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+                    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+                    const seconds = Math.floor((diff % (1000*60)) / 1000);
+                    document.getElementById('countdownTimer').textContent = 
+                        `${String(days).padStart(2,'0')}d:${String(hours).padStart(2,'0')}hr:${String(minutes).padStart(2,'0')}min:${String(seconds).padStart(2,'0')}sec`;
+                }
+                updateAnniversary();
+                setInterval(updateAnniversary, 1000);
+            </script>
+            <p>Celebrate our glory and tradition in the journey</p>
+            <p style="text-align:center; font-size:12px; font-weight:bold; color:#808080;">From 1990 to Present</p>
+            <div class="anniversary-date">28th August, <span id="current-year"></span></div>
+            <script> document.getElementById("current-year").textContent = new Date().getFullYear(); </script>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="controls-panel">
+                <h2>Customize Your Profile Picture</h2>
+                <p>Upload your photo - background will be automatically removed!</p>
+                <div class="template-selector" id="templateSelector">
+                    <h3><i class="fas fa-layer-group"></i> Select Template</h3>
+                    <div class="template-buttons" id="templateButtons">
+                        <button class="template-btn active" id="autoBtn" onclick="selectTemplate('auto')">Auto <span class="badge">Default</span></button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="upload" accept="image/*">
+                        <label for="upload" class="file-input-label"><i class="fas fa-cloud-upload-alt"></i> Choose Your Photo</label>
+                    </div>
+                    <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+                </div>
+                <div class="control-group">
+                    <div class="api-status connected" id="apiStatus"><i class="fas fa-check-circle"></i> Auto Background Removal Enabled</div>
+                </div>
+                <div class="control-group">
+                    <div class="btn-group">
+                        <button class="btn btn-warning" onclick="restoreOriginalImage()" id="restoreBtn" style="display:none;"><i class="fas fa-undo"></i> Restore Original</button>
+                    </div>
+                </div>
+                <div class="bg-removal-card">
+                    <h3>Need to Remove Background?</h3>
+                    <p>Use this free AI-powered tool to remove background from your photo:</p>
+                    <a href="https://www.remove.bg" target="_blank" class="bg-link"><i class="fas fa-external-link-alt"></i><div><strong>Remove.bg</strong><span>AI-powered background removal</span></div></a>
+                </div>
+                <div class="control-group">
+                    <label for="zoomRange">Zoom: <span id="zoomValue" class="value-display">100%</span></label>
+                    <div class="control-row">
+                        <button class="btn btn-secondary btn-icon" onclick="changeZoom(-0.01)"><i class="fas fa-search-minus"></i></button>
+                        <input type="range" id="zoomRange" min="0.5" max="10" step="0.01" value="1">
+                        <button class="btn btn-secondary btn-icon" onclick="changeZoom(0.01)"><i class="fas fa-search-plus"></i></button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="rotateRange">Rotation: <span id="rotateValue" class="value-display">0°</span></label>
+                    <div class="control-row">
+                        <button class="btn btn-secondary btn-icon" onclick="changeRotation(-1)"><i class="fas fa-undo"></i></button>
+                        <input type="range" id="rotateRange" min="0" max="360" step="1" value="0">
+                        <button class="btn btn-secondary btn-icon" onclick="changeRotation(1)"><i class="fas fa-redo"></i></button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>Position Adjustment</label>
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-icon" onclick="move('up')"><i class="fas fa-arrow-up"></i></button>
+                        <button class="btn btn-secondary btn-icon" onclick="move('left')"><i class="fas fa-arrow-left"></i></button>
+                        <button class="btn btn-secondary btn-icon" onclick="move('down')"><i class="fas fa-arrow-down"></i></button>
+                        <button class="btn btn-secondary btn-icon" onclick="move('right')"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="frame-toggle">
+                        <label>Anniversary Frame:</label>
+                        <label class="toggle-switch"><input type="checkbox" id="frameToggle" checked><span class="slider"></span></label>
+                        <span id="frameStatus">On</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <button class="btn" onclick="downloadImage()"><i class="fas fa-download"></i> Download Profile Picture</button>
+                    <button class="btn btn-secondary" onclick="resetAll()"><i class="fas fa-sync-alt"></i> Reset All</button>
+                </div>
+            </section>
+            <section class="preview-panel">
+                <div class="frame-container" id="frameContainer">
+                    <canvas id="canvas" width="2000" height="2000"></canvas>
+                </div>
+                <p class="hint">Click on the frame to upload a photo</p>
+                <div style="text-align:center;">
+                    <b>Please open this page in your Browser. Otherwise you can't download your image.</b><br>
+                    (দয়া করে এই পেইজটির লিঙ্ক কপি করে আপনার ফোন ব্রাউজারে খুলুন। না হলে আপনি আপনার ছবি ডাউনলোড করতে পারবেন না।)
+                    <div class="image-guide">
+                        <div class="guide-header"><div class="icon">✨</div><p>ছবি নির্দেশিকা</p></div>
+                        <div class="guide-img-container">
+                            <img id="instructionImg" src="https://i.ibb.co/chwZC5Zz/1000020934.jpg" alt="আদর্শ ছবির উদাহরণ">
+                            <div class="badge">HD</div>
+                        </div>
+                        <div class="guide-list">
+                            <div class="item"><span class="check">✓</span><span>পরিষ্কার ও স্পষ্ট ছবি</span></div>
+                            <div class="item"><span class="check">✓</span><span>কাছ থেকে তুলা</span></div>
+                        </div>
+                        <p class="guide-footer">এই রকম সুন্দর ও স্পষ্ট ছবি আপলোড করুন</p>
+                    </div>
+                    <div id="imgModal" class="modal"><span id="closeModal" class="close">&times;</span><img id="modalImg"></div>
+                    <script>
+                        var modal = document.getElementById("imgModal");
+                        var img = document.getElementById("instructionImg");
+                        var modalImg = document.getElementById("modalImg");
+                        var closeBtn = document.getElementById("closeModal");
+                        img.onclick = function() { modal.style.display = "block"; modalImg.src = this.src; }
+                        closeBtn.onclick = function() { modal.style.display = "none"; }
+                        modal.onclick = function(e) { if(e.target == modal) modal.style.display = "none"; }
+                    </script>
+                    <b>Auto Background Removal Enabled</b><br>
+                    Background will be removed automatically when you upload
+                </div>
+                <button class="btn" onclick="downloadImage()"><i class="fas fa-download"></i> Download Profile Picture</button>
+            </section>
+        </main>
+
+        <!-- Loading & Toast -->
+        <div class="loading" id="loading"><div class="spinner"></div><p id="loadingText">Processing your image...</p></div>
+        <div class="toast" id="toast"></div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="https://www.facebook.com/share/18rYDfKQjR/" title="Public Relations & ICT Taskforce">
+                <img class="profile-img" src="https://i.ibb.co/zhdxg26D/1000020862.png" alt="Public Relations & ICT Taskforce Logo" style="width:140px; height:auto; border-radius:8px; border:none; box-shadow:none;">
+            </a>
+            <div class="footer-text"><a href="https://www.facebook.com/share/18rYDfKQjR/" target="_blank" style="font-weight:700; color:var(--accent); margin-top:10px; font-size:16px; color:var(--text-light); text-decoration:none;">Public Relations & ICT Taskforce</a></div>
+            <div class="footer-links"><p style="color:var(--text-light); text-decoration:none;">Kishoreganj District Rover</p></div>
+            <div class="footer-text" style="margin-top:10px; font-size:13px;">© <span id="year"></span> Public Relations & ICT Taskforce<br>Kishoreganj District Rover<br>All Rights Reserved</div>
+            <div class="social-section">
+                <div class="section-title"><u>Connect With Us</u></div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/roverkishoreganj/" target="_blank" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="#" target="_blank" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="social-icon" title="Website"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Firebase & ImgBB -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script>
+        // Firebase Config
+        const firebaseConfig = {
+  apiKey: "AIzaSyAZqCBb6zuD3uzhUhE8Ccbeh66wIJpOMSM",
+  authDomain: "kdr-anniversary.firebaseapp.com",
+  projectId: "kdr-anniversary",
+  storageBucket: "kdr-anniversary.firebasestorage.app",
+  messagingSenderId: "744360884581",
+  appId: "1:744360884581:web:2c51e2dd3b322288c2c98c"
+};
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // DOM refs
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const upload = document.getElementById('upload');
+        const zoomRange = document.getElementById('zoomRange');
+        const rotateRange = document.getElementById('rotateRange');
+        const zoomValue = document.getElementById('zoomValue');
+        const rotateValue = document.getElementById('rotateValue');
+        const loading = document.getElementById('loading');
+        const loadingText = document.getElementById('loadingText');
+        const toast = document.getElementById('toast');
+        const frameToggle = document.getElementById('frameToggle');
+        const frameStatus = document.getElementById('frameStatus');
+        const apiStatus = document.getElementById('apiStatus');
+        const progressBar = document.getElementById('progressBar');
+        const progressFill = document.getElementById('progressFill');
+        const restoreBtn = document.getElementById('restoreBtn');
+        const frameContainer = document.getElementById('frameContainer');
+        const templateButtons = document.getElementById('templateButtons');
+
+        const SIZE = 2500;
+        canvas.width = SIZE; canvas.height = SIZE;
+
+        let userImg = new Image();
+        let backgroundImg = new Image();
+        let frameImg = new Image();
+        let originalUserImg = null;
+        let pos = {x: SIZE/2, y: SIZE/2};
+        let scale = 1;
+        let rotation = 0;
+        let frameEnabled = true;
+        let isBackgroundRemoved = false;
+        let isImageLoaded = false;
+        let isDownloading = false;
+        let isDragging = false;
+        let lastX = 0, lastY = 0;
+        let initialPinchDistance = 0, initialScale = 1;
+        let currentTemplate = 'auto';
+        let allTemplates = [];
+        let defaultCaption = '';
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Floating menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('floatingMenu');
+            const dropdown = document.getElementById('floatingDropdown');
+            menu.classList.toggle('active');
+            dropdown.classList.toggle('show');
+        }
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('floatingMenu');
+            const dropdown = document.getElementById('floatingDropdown');
+            if (!menu.contains(e.target) && !dropdown.contains(e.target)) {
+                menu.classList.remove('active');
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // ========== LOAD DEFAULT CAPTION FROM FIRESTORE ==========
+        async function loadDefaultCaption() {
+            try {
+                const doc = await db.collection('settings').doc('anniversaryCaption').get();
+                if (doc.exists) {
+                    defaultCaption = doc.data().caption || '';
+                } else {
+                    defaultCaption = 'Happy Anniversary! 🎉';
+                }
+                console.log('Default caption loaded:', defaultCaption);
+            } catch (error) {
+                console.error('Error loading caption:', error);
+                defaultCaption = 'Happy Anniversary! 🎉';
+            }
+        }
+
+        // Load templates from Firestore
+        async function loadTemplatesFromFirestore() {
+            try {
+                const snapshot = await db.collection('profileMakerTemplates').orderBy('uploadedAt','desc').get();
+                allTemplates = [];
+                snapshot.forEach(doc => { const data=doc.data(); data.id=doc.id; allTemplates.push(data); });
+                buildTemplateButtons();
+                selectTemplate('auto');
+            } catch(e) { console.error(e); showToast('Error loading templates.'); }
+        }
+
+        function buildTemplateButtons() {
+            const autoBtn = document.getElementById('autoBtn');
+            templateButtons.innerHTML = '';
+            templateButtons.appendChild(autoBtn);
+            allTemplates.forEach((template,index) => {
+                const btn = document.createElement('button');
+                btn.className = 'template-btn';
+                btn.id = `template${index+1}Btn`;
+                btn.innerHTML = `Template ${index+1} <span class="badge">${template.hasBackground?'With BG':'Frame Only'}</span>`;
+                btn.onclick = () => selectTemplate(`template${index+1}`);
+                templateButtons.appendChild(btn);
+            });
+            setActiveTemplate(currentTemplate);
+        }
+
+        function setActiveTemplate(template) {
+            document.querySelectorAll('.template-btn').forEach(btn => btn.classList.remove('active'));
+            if(template==='auto') document.getElementById('autoBtn').classList.add('active');
+            else {
+                const index = parseInt(template.replace('template',''))-1;
+                const btn = document.getElementById(`template${index+1}Btn`);
+                if(btn) btn.classList.add('active');
+            }
+        }
+
+        function selectTemplate(template) {
+            currentTemplate = template;
+            setActiveTemplate(template);
+            if(template==='auto') {
+                if(allTemplates.length>0) {
+                    const first = allTemplates[0];
+                    if(first.hasBackground && first.backgroundUrl) loadImageWithCORS(backgroundImg, first.backgroundUrl);
+                    else backgroundImg.src = '';
+                    if(first.frameUrl) loadImageWithCORS(frameImg, first.frameUrl);
+                    else frameImg.src = '';
+                } else { backgroundImg.src=''; frameImg.src=''; }
+            } else {
+                const idx = parseInt(template.replace('template',''))-1;
+                if(allTemplates.length>idx) {
+                    const selected = allTemplates[idx];
+                    if(selected.hasBackground && selected.backgroundUrl) loadImageWithCORS(backgroundImg, selected.backgroundUrl);
+                    else backgroundImg.src = '';
+                    if(selected.frameUrl) loadImageWithCORS(frameImg, selected.frameUrl);
+                    else frameImg.src = '';
+                }
+            }
+            draw();
+        }
+
+        function loadImageWithCORS(imgElement, url) {
+            if(!url) { imgElement.src=''; return; }
+            imgElement.crossOrigin='anonymous';
+            imgElement.src=url;
+        }
+
+        // Initialize: load caption first, then templates
+        loadDefaultCaption();
+        loadTemplatesFromFirestore();
+        backgroundImg.onload = draw;
+        frameImg.onload = draw;
+        upload.addEventListener('change', handleImageUpload);
+        canvas.addEventListener('click', ()=>upload.click());
+        frameToggle.addEventListener('change', function(){ frameEnabled=this.checked; frameStatus.textContent=frameEnabled?'On':'Off'; draw(); });
+        zoomRange.addEventListener('input', ()=>{ scale=parseFloat(zoomRange.value); zoomValue.innerText=Math.round(scale*100)+'%'; draw(); });
+        rotateRange.addEventListener('input', ()=>{ rotation=parseFloat(rotateRange.value); rotateValue.innerText=rotation+'°'; draw(); });
+
+        // Drag & touch events
+        canvas.addEventListener('mousedown', startDrag);
+        canvas.addEventListener('mousemove', drag);
+        canvas.addEventListener('mouseup', endDrag);
+        canvas.addEventListener('mouseleave', endDrag);
+        canvas.addEventListener('touchstart', handleTouchStart, {passive:false});
+        canvas.addEventListener('touchmove', handleTouchMove, {passive:false});
+        canvas.addEventListener('touchend', handleTouchEnd);
+
+        const API_KEYS = ['dBRANgpPpXKNPRiEZaiRqst2','ffx3DRJDygMt3EAb2J2a7v5q','YtvkQ83sqsdHPwRdaDi7jpiw','Tkv9qWghUG5wc1vciHRHBPWt','kKUe17RuQXzvYzTvDpZogGjp','3dUYfYoTqQH7EFcXEm78D4MR','Bf7jStv72K8DDTRKnpgymWNf','2JPLAjxX4FBw2RAmBoemCrxU','oDcaNapiX2ry2Wy1nbWKP7Mi','rz3hxBK2FZNn6q4QxyWrFtBu','okLVRDyGPv3M7sdyB5513BgN','peEih6pwZLVk2wnEAASo1xTQ','jofgwa79NcibJMYRXBYjxjmh','p7p4RzK86qRavMHAGYHDb5iq','Pym48TVQuvXE7xpsMQ7UMfC1','yMzXuQ7zwhCDHRPR6LLjHhbz','zW9rFe2jsTYtJ1ML5FS7iWyW','TsJ368h486kwwhNy8ASK6t8N','keZYM1nR2KVL4usLmSBUNcN5','jpVsmnd3KvUPM6givUBbX1kR','9ceyoLUqH3XJ135uMivvmcZZ','p2jaeFs5WoL2AmSqmcE4ew7M','CFY9TYo8zrqJe5BBbokaCTc7','tvEgfTouDMEaSi4vRm62ccMG','Fm5SDTy7BUPFacZCKKPGpW1M','9MsudR32RqZiE2E5CcqhHYE6','kjK4tpHumJTcGQafmwJQ7paU'];
+        let currentApiKeyIndex = 0;
+
+        async function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if(!file) return;
+            if(!file.type.match('image.*')) { showToast('Please select an image file'); return; }
+            showLoading('Uploading image...');
+            progressBar.style.display='block';
+            progressFill.style.width='20%';
+            const reader = new FileReader();
+            reader.onload = async function(evt) {
+                originalUserImg = new Image();
+                originalUserImg.src = evt.target.result;
+                userImg = new Image();
+                userImg.onload = async ()=>{
+                    try { await removeBackgroundWithAPI(); }
+                    catch(error) { console.error(error); hideLoading(); progressBar.style.display='none'; showToast('Background removal failed. Using original.'); resetPosition(); draw(); }
+                };
+                userImg.onerror = ()=>{ hideLoading(); progressBar.style.display='none'; showToast('Error loading image.'); };
+                userImg.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function removeBackgroundWithAPI() {
+            updateLoadingText('Removing background...');
+            progressFill.style.width='50%';
+            apiStatus.className='api-status processing';
+            apiStatus.innerHTML='<i class="fas fa-sync fa-spin"></i> Removing Background...';
+            try {
+                const apiKey = API_KEYS[currentApiKeyIndex];
+                const formData = new FormData();
+                const blob = await fetch(userImg.src).then(r=>r.blob());
+                formData.append('image_file', blob);
+                formData.append('size', 'auto');
+                const response = await fetch('https://api.remove.bg/v1.0/removebg', {
+                    method:'POST',
+                    headers:{'X-Api-Key': apiKey},
+                    body: formData
+                });
+                if(response.status===402) {
+                    currentApiKeyIndex = (currentApiKeyIndex+1)%API_KEYS.length;
+                    if(currentApiKeyIndex===0) throw new Error('All API keys quota exceeded');
+                    showToast('Trying another API key...');
+                    return await removeBackgroundWithAPI();
+                }
+                if(!response.ok) throw new Error(`API Error: ${response.status}`);
+                progressFill.style.width='80%';
+                updateLoadingText('Processing result...');
+                const blobResult = await response.blob();
+                const processedImageUrl = URL.createObjectURL(blobResult);
+                userImg = new Image();
+                userImg.onload = ()=>{
+                    progressFill.style.width='100%';
+                    hideLoading();
+                    progressBar.style.display='none';
+                    apiStatus.className='api-status connected';
+                    apiStatus.innerHTML='<i class="fas fa-check-circle"></i> Background Removed Successfully';
+                    restoreBtn.style.display='block';
+                    isBackgroundRemoved=true;
+                    resetPosition();
+                    draw();
+                    showToast('Background removed automatically!');
+                };
+                userImg.src = processedImageUrl;
+            } catch(error) {
+                console.error(error);
+                apiStatus.className='api-status disconnected';
+                apiStatus.innerHTML='<i class="fas fa-exclamation-circle"></i> Auto Removal Failed';
+                hideLoading();
+                progressBar.style.display='none';
+                throw error;
+            }
+        }
+
+        function restoreOriginalImage() {
+            if(originalUserImg) {
+                userImg = new Image();
+                userImg.src = originalUserImg.src;
+                userImg.onload = ()=>{ isBackgroundRemoved=false; restoreBtn.style.display='none'; apiStatus.className='api-status connected'; apiStatus.innerHTML='<i class="fas fa-check-circle"></i> Original Image Restored'; draw(); showToast('Original image restored!'); };
+            }
+        }
+
+        function changeZoom(delta){ scale=Math.max(0.2,Math.min(10,scale+delta)); zoomRange.value=scale; zoomValue.innerText=Math.round(scale*100)+'%'; draw(); }
+        function changeRotation(delta){ rotation=(rotation+delta)%360; if(rotation<0) rotation+=360; rotateRange.value=rotation; rotateValue.innerText=rotation+'°'; draw(); }
+
+        function startDrag(e){ if(!userImg.src) return; isDragging=true; const rect=canvas.getBoundingClientRect(); lastX=e.clientX-rect.left; lastY=e.clientY-rect.top; canvas.style.cursor='grabbing'; }
+        function drag(e){ if(!isDragging || !userImg.src) return; const rect=canvas.getBoundingClientRect(); const currentX=e.clientX-rect.left; const currentY=e.clientY-rect.top; pos.x += currentX-lastX; pos.y += currentY-lastY; lastX=currentX; lastY=currentY; draw(); }
+        function endDrag(){ isDragging=false; canvas.style.cursor=userImg.src?'grab':'pointer'; }
+        function handleTouchStart(e){ if(!userImg.src) return; e.preventDefault(); if(e.touches.length===1){ isDragging=true; const rect=canvas.getBoundingClientRect(); lastX=e.touches[0].clientX-rect.left; lastY=e.touches[0].clientY-rect.top; } else if(e.touches.length===2){ const t1=e.touches[0], t2=e.touches[1]; initialPinchDistance=Math.sqrt(Math.pow(t2.clientX-t1.clientX,2)+Math.pow(t2.clientY-t1.clientY,2)); initialScale=scale; } }
+        function handleTouchMove(e){ if(!userImg.src) return; e.preventDefault(); if(e.touches.length===1 && isDragging){ const rect=canvas.getBoundingClientRect(); const cx=e.touches[0].clientX-rect.left; const cy=e.touches[0].clientY-rect.top; pos.x += cx-lastX; pos.y += cy-lastY; lastX=cx; lastY=cy; draw(); } else if(e.touches.length===2){ const t1=e.touches[0], t2=e.touches[1]; const dist=Math.sqrt(Math.pow(t2.clientX-t1.clientX,2)+Math.pow(t2.clientY-t1.clientY,2)); if(initialPinchDistance>0){ const pinchScale=dist/initialPinchDistance; scale=Math.max(0.2,Math.min(10,initialScale*pinchScale)); zoomRange.value=scale; zoomValue.innerText=Math.round(scale*100)+'%'; draw(); } } }
+        function handleTouchEnd(e){ if(e.touches.length===0){ isDragging=false; initialPinchDistance=0; } }
+
+        function move(direction){ const step=10; if(direction==='up') pos.y-=step; else if(direction==='down') pos.y+=step; else if(direction==='left') pos.x-=step; else if(direction==='right') pos.x+=step; draw(); }
+        function resetPosition(){ pos={x:SIZE/2,y:SIZE/2}; scale=1; zoomRange.value=1; zoomValue.innerText="100%"; rotation=0; rotateRange.value=0; rotateValue.innerText="0°"; }
+        function resetAll(){ if(userImg.src){ resetPosition(); draw(); showToast('All settings reset'); } else showToast('Please upload an image first'); }
+
+        function draw() {
+            ctx.clearRect(0,0,SIZE,SIZE);
+            if(backgroundImg.complete && backgroundImg.naturalWidth>0 && backgroundImg.src) ctx.drawImage(backgroundImg,0,0,SIZE,SIZE);
+            if(userImg.src && userImg.complete && userImg.naturalWidth>0) {
+                ctx.save();
+                ctx.translate(pos.x,pos.y);
+                ctx.rotate(rotation*Math.PI/180);
+                ctx.scale(scale,scale);
+                ctx.drawImage(userImg,-userImg.width/2,-userImg.height/2);
+                ctx.restore();
+            } else {
+                ctx.fillStyle='#f5f5f5';
+                ctx.fillRect(0,0,SIZE,SIZE);
+                ctx.fillStyle='#cccccc';
+                ctx.font='bold 100px Arial';
+                ctx.textAlign='center';
+                ctx.textBaseline='middle';
+                ctx.fillText('Upload Your Photo',SIZE/2,SIZE/2-40);
+                ctx.font='60px Arial';
+                ctx.fillText('Click Here',SIZE/2,SIZE/2+60);
+            }
+            if(frameEnabled && frameImg.complete && frameImg.naturalWidth>0 && frameImg.src) ctx.drawImage(frameImg,0,0,SIZE,SIZE);
+        }
+
+        // ========== COPY TO CLIPBOARD HELPER ==========
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast('✅ Caption copied to clipboard!');
+                }).catch(() => {
+                    fallbackCopy(text);
+                });
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('✅ Caption copied to clipboard!');
+            } catch (e) {
+                showToast('⚠️ Please copy the caption manually: ' + text);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // ========== DOWNLOAD + CAPTION COPY + UPLOAD ==========
+        function downloadImage() {
+            if(!userImg.src || !userImg.complete || userImg.naturalWidth===0) {
+                showToast('Please upload your photo first!');
+                return;
+            }
+            if(isDownloading) return;
+            isDownloading = true;
+            showLoading('Preparing high-quality download...');
+
+            setTimeout(() => {
+                try {
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = SIZE;
+                    tempCanvas.height = SIZE;
+                    const tempCtx = tempCanvas.getContext('2d');
+
+                    if(backgroundImg.complete && backgroundImg.naturalWidth>0 && backgroundImg.src) tempCtx.drawImage(backgroundImg,0,0,SIZE,SIZE);
+                    if(userImg.src && userImg.complete && userImg.naturalWidth>0) {
+                        tempCtx.save();
+                        tempCtx.translate(pos.x,pos.y);
+                        tempCtx.rotate(rotation*Math.PI/180);
+                        tempCtx.scale(scale,scale);
+                        tempCtx.drawImage(userImg,-userImg.width/2,-userImg.height/2);
+                        tempCtx.restore();
+                    }
+                    if(frameEnabled && frameImg.complete && frameImg.naturalWidth>0 && frameImg.src) tempCtx.drawImage(frameImg,0,0,SIZE,SIZE);
+
+                    const dataURL = tempCanvas.toDataURL('image/png');
+
+                    // Trigger download
+                    const link = document.createElement('a');
+                    link.download = 'Kishoreganj-Rover-Anniversary-Profile.png';
+                    link.href = dataURL;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+
+                    hideLoading();
+
+                    // ===== COPY CAPTION TO CLIPBOARD =====
+                    const captionToCopy = defaultCaption || 'Happy Anniversary! 🎉';
+                    copyToClipboard(captionToCopy);
+
+                    // ===== Ask user to upload to gallery =====
+                    if (confirm('Do you want to upload this picture to the anniversary gallery with the caption?')) {
+                        const userCaption = prompt('Enter your caption (or use the default one):', captionToCopy);
+                        if (userCaption !== null) {
+                            uploadToImgBBAndFirestore(dataURL, userCaption || captionToCopy);
+                        } else {
+                            showToast('Upload cancelled.');
+                        }
+                    } else {
+                        showToast('Download complete! Caption copied to clipboard.');
+                    }
+                } catch(error) {
+                    console.error(error);
+                    hideLoading();
+                    showToast('Download failed. Please try again.');
+                } finally {
+                    isDownloading = false;
+                }
+            }, 300);
+        }
+
+        // Upload to ImgBB (compress to <2MB) then save to Firestore
+        async function uploadToImgBBAndFirestore(dataURL, caption) {
+            showLoading('Uploading to gallery...');
+            try {
+                const compressedBlob = await compressImage(dataURL, 0.7, 2000);
+                const formData = new FormData();
+                formData.append('image', compressedBlob, 'anniversary.jpg');
+                formData.append('key', 'ae883d1d5b5ca0ac775a91cae63871ba');
+
+                const response = await fetch('https://api.imgbb.com/1/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                if (!result.success) {
+                    throw new Error('ImgBB upload failed: ' + (result.error?.message || 'unknown error'));
+                }
+                const imageUrl = result.data.url;
+
+                const year = new Date().getFullYear();
+                await db.collection('anniversaryGallery').add({
+                    imageUrl: imageUrl,
+                    caption: caption || defaultCaption || '',
+                    year: year,
+                    uploadedAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                hideLoading();
+                showToast('✅ Image uploaded to gallery successfully!');
+            } catch (error) {
+                console.error(error);
+                hideLoading();
+                showToast('❌ Failed to upload to gallery: ' + error.message);
+            }
+        }
+
+        // Helper: compress image to JPEG < 2MB
+        function compressImage(dataURL, quality, maxDimension) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = function() {
+                    let width = img.width;
+                    let height = img.height;
+                    if (width > maxDimension || height > maxDimension) {
+                        const ratio = Math.min(maxDimension/width, maxDimension/height);
+                        width = Math.round(width * ratio);
+                        height = Math.round(height * ratio);
+                    }
+                    const canvas = document.createElement('canvas');
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    canvas.toBlob(function(blob) {
+                        if (blob) resolve(blob);
+                        else reject(new Error('Canvas toBlob failed'));
+                    }, 'image/jpeg', quality);
+                };
+                img.onerror = reject;
+                img.src = dataURL;
+            });
+        }
+
+        // Loading helpers
+        function showLoading(text){ loadingText.textContent=text||'Processing...'; loading.classList.add('show'); }
+        function hideLoading(){ loading.classList.remove('show'); }
+        function updateLoadingText(text){ loadingText.textContent=text; }
+        function showToast(message){ toast.textContent=message; toast.classList.add('show'); clearTimeout(toast._timeout); toast._timeout=setTimeout(()=>toast.classList.remove('show'),4000); }
+
+        draw();
+    </script>
+</body>
+</html>
