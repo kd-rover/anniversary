@@ -18,7 +18,7 @@
             padding: 40px 20px;
         }
         .log-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -42,7 +42,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             padding-bottom: 20px;
             border-bottom: 2px solid #f0f0f0;
         }
@@ -56,7 +56,7 @@
         .log-header h1 i {
             color: #8B0000;
         }
-        .log-header .header-actions {
+        .header-actions {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
@@ -81,33 +81,68 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(139, 0, 0, 0.3);
         }
-        .delete-all-btn {
+        .btn-danger {
             padding: 12px 24px;
-            background: #dc3545;
+            background: #f44336;
             color: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
             font-weight: 600;
-            display: none;
+            display: flex;
             align-items: center;
             gap: 10px;
             transition: all 0.3s;
         }
-        .delete-all-btn:hover {
-            background: #c82333;
+        .btn-danger:hover {
+            background: #da190b;
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(220, 53, 69, 0.3);
+            box-shadow: 0 5px 20px rgba(244, 67, 54, 0.3);
         }
-        .delete-all-btn:disabled {
+        .btn-danger:disabled {
             background: #cccccc;
             cursor: not-allowed;
             transform: none;
             box-shadow: none;
         }
-        .delete-all-btn.show {
+        .btn-success {
+            padding: 12px 24px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
             display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(40, 167, 69, 0.3);
+        }
+        .btn-info {
+            padding: 12px 24px;
+            background: #17a2b8;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        .btn-info:hover {
+            background: #138496;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(23, 162, 184, 0.3);
         }
         .log-stats {
             display: flex;
@@ -141,6 +176,7 @@
             padding: 15px;
             background: #f8f9fa;
             border-radius: 12px;
+            align-items: center;
         }
         .filters select,
         .filters input {
@@ -182,6 +218,45 @@
         }
         .filters .clear-btn:hover {
             background: #cccccc;
+        }
+        .export-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .export-dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            z-index: 10;
+            overflow: hidden;
+        }
+        .export-dropdown-content.show {
+            display: block;
+        }
+        .export-dropdown-content button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            width: 100%;
+            text-align: left;
+            transition: background 0.2s;
+        }
+        .export-dropdown-content button:hover {
+            background: #f0f0f0;
+        }
+        .export-dropdown-content button i {
+            width: 20px;
+            color: #8B0000;
         }
         .activity-log-list {
             max-height: 600px;
@@ -269,126 +344,37 @@
                 transform: rotate(360deg);
             }
         }
-        /* ---------- STATUS MESSAGE ---------- */
-        .status-message {
-            padding: 12px 18px;
-            border-radius: 8px;
-            margin: 15px 0;
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #333;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             display: none;
             align-items: center;
-            gap: 10px;
-            font-weight: 500;
+            gap: 12px;
+            z-index: 9999;
+            max-width: 400px;
+            animation: slideUp 0.3s ease;
         }
-        .status-message.show {
+        .toast.show {
             display: flex;
         }
-        .status-message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+        .toast.success {
+            background: #28a745;
         }
-        .status-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+        .toast.error {
+            background: #f44336;
         }
-        .status-message.info {
-            background: #d1ecf1;
-            color: #0c5460;
-            border: 1px solid #bee5eb;
+        .toast.info {
+            background: #17a2b8;
         }
-        /* ---------- DELETE CONFIRM MODAL ---------- */
-        .confirm-modal {
-            display: none;
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            animation: fadeIn 0.3s ease;
+        .toast i {
+            font-size: 20px;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        .confirm-modal-content {
-            background: white;
-            max-width: 450px;
-            width: 95%;
-            margin: 100px auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.3s ease;
-            text-align: center;
-        }
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .confirm-modal-content h3 {
-            color: #333;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        .confirm-modal-content p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        .confirm-modal-content .warning-icon {
-            font-size: 60px;
-            color: #dc3545;
-            margin-bottom: 15px;
-        }
-        .confirm-modal-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        .confirm-modal-actions button {
-            padding: 12px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .confirm-modal-actions .btn-confirm-delete {
-            background: #dc3545;
-            color: white;
-        }
-        .confirm-modal-actions .btn-confirm-delete:hover {
-            background: #c82333;
-            transform: translateY(-2px);
-        }
-        .confirm-modal-actions .btn-confirm-delete:disabled {
-            background: #cccccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-        .confirm-modal-actions .btn-cancel-delete {
-            background: #e0e0e0;
-            color: #333;
-        }
-        .confirm-modal-actions .btn-cancel-delete:hover {
-            background: #cccccc;
-        }
-
         @media (max-width: 768px) {
             .log-container {
                 padding: 20px;
@@ -397,12 +383,12 @@
                 flex-direction: column;
                 text-align: center;
             }
-            .log-header .header-actions {
-                flex-direction: column;
+            .header-actions {
                 width: 100%;
+                flex-direction: column;
             }
-            .log-header .header-actions .back-btn,
-            .log-header .header-actions .delete-all-btn {
+            .header-actions button,
+            .header-actions a {
                 width: 100%;
                 justify-content: center;
             }
@@ -429,9 +415,10 @@
             .stat-card .number {
                 font-size: 22px;
             }
-            .confirm-modal-content {
-                margin: 40px auto;
-                padding: 20px;
+            .export-dropdown-content {
+                right: 0;
+                left: 0;
+                min-width: auto;
             }
         }
     </style>
@@ -441,11 +428,30 @@
         <div class="log-header">
             <h1><i class="fas fa-history"></i> Activity Log</h1>
             <div class="header-actions">
-                <button class="delete-all-btn" id="deleteAllBtn" onclick="openDeleteConfirmModal()">
-                    <i class="fas fa-trash-alt"></i> Delete All Activities
+                <div class="export-dropdown">
+                    <button class="btn-success" onclick="toggleExportDropdown()">
+                        <i class="fas fa-file-export"></i> Export
+                    </button>
+                    <div class="export-dropdown-content" id="exportDropdown">
+                        <button onclick="exportCSV('all')">
+                            <i class="fas fa-file-csv"></i> Export All as CSV
+                        </button>
+                        <button onclick="exportCSV('filtered')">
+                            <i class="fas fa-file-csv"></i> Export Filtered as CSV
+                        </button>
+                        <button onclick="exportXLSX('all')">
+                            <i class="fas fa-file-excel"></i> Export All as XLSX
+                        </button>
+                        <button onclick="exportXLSX('filtered')">
+                            <i class="fas fa-file-excel"></i> Export Filtered as XLSX
+                        </button>
+                    </div>
+                </div>
+                <button class="btn-danger" id="deleteAllBtn" onclick="deleteAllActivities()" style="display:none;">
+                    <i class="fas fa-trash-alt"></i> Delete All
                 </button>
-                <a href="admin.html" class="back-btn">
-                    <i class="fas fa-arrow-left"></i> Back to Admin Panel
+                <a href="admin-anniversary.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back
                 </a>
             </div>
         </div>
@@ -465,8 +471,6 @@
             </div>
         </div>
 
-        <div id="statusMessage" class="status-message"></div>
-
         <div class="filters">
             <select id="filterPosition">
                 <option value="">All Positions</option>
@@ -477,6 +481,9 @@
                 <option value="Co-Ordinator">Co-Ordinator</option>
                 <option value="Member">Member</option>
                 <option value="Editor">Editor</option>
+            </select>
+            <select id="filterAdmin">
+                <option value="">All Admins</option>
             </select>
             <input type="date" id="filterDate" />
             <button class="filter-btn" onclick="applyFilters()">
@@ -502,27 +509,10 @@
         </div>
     </div>
 
-    <!-- ========== DELETE CONFIRM MODAL ========== -->
-    <div class="confirm-modal" id="deleteConfirmModal">
-        <div class="confirm-modal-content">
-            <div class="warning-icon">
-                <i class="fas fa-exclamation-triangle"></i>
-            </div>
-            <h3>⚠️ Delete All Activities?</h3>
-            <p>
-                This action will permanently delete <strong>all</strong> activity logs from the database.
-                <br><br>
-                <span style="color:#dc3545; font-weight:600;">This action cannot be undone!</span>
-            </p>
-            <div class="confirm-modal-actions">
-                <button class="btn-confirm-delete" id="confirmDeleteBtn" onclick="confirmDeleteAll()">
-                    <i class="fas fa-trash-alt"></i> Yes, Delete All
-                </button>
-                <button class="btn-cancel-delete" onclick="closeDeleteConfirmModal()">
-                    <i class="fas fa-times"></i> Cancel
-                </button>
-            </div>
-        </div>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle" id="toastIcon"></i>
+        <span id="toastMessage">Success!</span>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js">
@@ -530,6 +520,9 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js">
     </script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js">
+    </script>
+    <!-- SheetJS for XLSX export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js">
     </script>
 
     <script>
@@ -546,38 +539,34 @@
         const db = firebase.firestore();
 
         let allActivities = [];
-        let currentUser = null;
         let isSuperAdmin = false;
+        let currentUserEmail = '';
 
         // ============================================================
-        //  CHECK AUTH STATUS
+        //  AUTH CHECK
         // ============================================================
         auth.onAuthStateChanged(async (user) => {
             if (user) {
-                currentUser = user;
+                currentUserEmail = user.email;
                 try {
                     const doc = await db.collection('adminUsers').doc(user.uid).get();
                     if (doc.exists) {
                         const data = doc.data();
                         isSuperAdmin = data.isSuperAdmin || false;
-                        // Show Delete All button only for Super Admin
                         if (isSuperAdmin) {
-                            document.getElementById('deleteAllBtn').classList.add('show');
-                        } else {
-                            document.getElementById('deleteAllBtn').classList.remove('show');
+                            document.getElementById('deleteAllBtn').style.display = 'flex';
                         }
                         loadActivityLog();
+                        loadAdminList();
                     } else {
-                        // Not an admin, redirect
-                        window.location.href = 'admin.html';
+                        showToast('Unauthorized access!', 'error');
+                        window.location.href = 'admin-anniversary.html';
                     }
                 } catch (e) {
                     console.error('Auth check error:', e);
-                    window.location.href = 'admin.html';
                 }
             } else {
-                // Not logged in, redirect to login
-                window.location.href = 'admin.html';
+                window.location.href = 'admin-anniversary.html';
             }
         });
 
@@ -633,7 +622,33 @@
         }
 
         // ============================================================
-        //  RENDER ACTIVITIES
+        //  LOAD ADMIN LIST FOR FILTER
+        // ============================================================
+        async function loadAdminList() {
+            try {
+                const snapshot = await db.collection('adminUsers').get();
+                const select = document.getElementById('filterAdmin');
+                const admins = new Set();
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    if (data.name && data.email) {
+                        admins.add(JSON.stringify({ name: data.name, email: data.email }));
+                    }
+                });
+                admins.forEach(admin => {
+                    const { name, email } = JSON.parse(admin);
+                    const option = document.createElement('option');
+                    option.value = email;
+                    option.textContent = `${name} (${email})`;
+                    select.appendChild(option);
+                });
+            } catch (e) {
+                console.error('Load admin list error:', e);
+            }
+        }
+
+        // ============================================================
+        //  RENDER FUNCTIONS
         // ============================================================
         function renderActivities(activities) {
             const list = document.getElementById('activityLogList');
@@ -671,9 +686,6 @@
             list.innerHTML = html;
         }
 
-        // ============================================================
-        //  UPDATE STATS
-        // ============================================================
         function updateStats(activities) {
             document.getElementById('totalCount').textContent = activities.length;
 
@@ -691,17 +703,19 @@
             document.getElementById('userCount').textContent = uniqueUsers.size;
         }
 
-        // ============================================================
-        //  FILTERS
-        // ============================================================
-        function applyFilters() {
+        function getFilteredActivities() {
             const positionFilter = document.getElementById('filterPosition').value;
+            const adminFilter = document.getElementById('filterAdmin').value;
             const dateFilter = document.getElementById('filterDate').value;
 
             let filtered = allActivities;
 
             if (positionFilter) {
                 filtered = filtered.filter(data => data.adminPosition === positionFilter);
+            }
+
+            if (adminFilter) {
+                filtered = filtered.filter(data => data.adminEmail === adminFilter);
             }
 
             if (dateFilter) {
@@ -717,12 +731,21 @@
                 });
             }
 
+            return filtered;
+        }
+
+        // ============================================================
+        //  FILTERS
+        // ============================================================
+        function applyFilters() {
+            const filtered = getFilteredActivities();
             renderActivities(filtered);
             updateStats(filtered);
         }
 
         function clearFilters() {
             document.getElementById('filterPosition').value = '';
+            document.getElementById('filterAdmin').value = '';
             document.getElementById('filterDate').value = '';
             renderActivities(allActivities);
             updateStats(allActivities);
@@ -733,118 +756,214 @@
         }
 
         // ============================================================
-        //  DELETE ALL ACTIVITIES (Super Admin Only)
+        //  DELETE ALL ACTIVITIES (Super Admin only)
         // ============================================================
-        function openDeleteConfirmModal() {
+        async function deleteAllActivities() {
             if (!isSuperAdmin) {
-                showStatusMessage('❌ Only Super Admin can delete activities!', 'error');
+                showToast('Only Super Admin can delete activities!', 'error');
                 return;
             }
-            document.getElementById('deleteConfirmModal').style.display = 'block';
-        }
 
-        function closeDeleteConfirmModal() {
-            document.getElementById('deleteConfirmModal').style.display = 'none';
-            document.getElementById('confirmDeleteBtn').disabled = false;
-            document.getElementById('confirmDeleteBtn').innerHTML = '<i class="fas fa-trash-alt"></i> Yes, Delete All';
-        }
+            if (allActivities.length === 0) {
+                showToast('No activities to delete.', 'info');
+                return;
+            }
 
-        async function confirmDeleteAll() {
-            const btn = document.getElementById('confirmDeleteBtn');
+            if (!confirm('⚠️ Are you sure you want to delete ALL activities? This action cannot be undone!')) {
+                return;
+            }
+
+            const btn = document.getElementById('deleteAllBtn');
             btn.disabled = true;
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Deleting...';
 
             try {
-                // Get all activity documents
-                const snapshot = await db.collection('activityLog')
-                    .orderBy('timestamp', 'desc')
-                    .get();
-
-                if (snapshot.empty) {
-                    showStatusMessage('No activities to delete.', 'info');
-                    closeDeleteConfirmModal();
-                    return;
-                }
-
-                // Delete each document in batches
-                let deletedCount = 0;
                 const batchSize = 20;
-                let batch = db.batch();
-                let count = 0;
+                const total = allActivities.length;
+                let deleted = 0;
 
-                for (const doc of snapshot.docs) {
-                    batch.delete(doc.ref);
-                    count++;
-                    deletedCount++;
-
-                    if (count === batchSize) {
-                        await batch.commit();
-                        batch = db.batch();
-                        count = 0;
-                    }
-                }
-
-                if (count > 0) {
+                for (let i = 0; i < allActivities.length; i += batchSize) {
+                    const batch = db.batch();
+                    const chunk = allActivities.slice(i, i + batchSize);
+                    chunk.forEach(activity => {
+                        if (activity.id) {
+                            const ref = db.collection('activityLog').doc(activity.id);
+                            batch.delete(ref);
+                        }
+                    });
                     await batch.commit();
+                    deleted += chunk.length;
+                    showToast(`Deleting ${deleted}/${total} activities...`, 'info');
                 }
 
-                // Log this action
+                // Log the deletion
                 await db.collection('activityLog').add({
-                    adminName: currentUser.email || 'Super Admin',
+                    adminName: 'System',
                     adminPosition: 'Super Admin',
-                    adminEmail: currentUser.email,
-                    action: `🗑️ Deleted all activity logs (${deletedCount} entries)`,
+                    adminEmail: currentUserEmail,
+                    action: `Deleted ALL ${deleted} activities`,
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 });
 
-                showStatusMessage(`✅ Successfully deleted ${deletedCount} activity entries!`, 'success');
-                closeDeleteConfirmModal();
-
-                // Reload the log
+                showToast(`✅ Successfully deleted ${deleted} activities!`, 'success');
                 loadActivityLog();
 
             } catch (error) {
-                console.error('Delete all error:', error);
-                showStatusMessage('❌ Error deleting activities: ' + error.message, 'error');
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-trash-alt"></i> Yes, Delete All';
+                console.error('Delete error:', error);
+                showToast('❌ Error deleting activities: ' + error.message, 'error');
             }
+
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-trash-alt"></i> Delete All';
         }
 
         // ============================================================
-        //  STATUS MESSAGE
+        //  EXPORT FUNCTIONS
         // ============================================================
-        function showStatusMessage(message, type) {
-            const statusDiv = document.getElementById('statusMessage');
-            statusDiv.textContent = message;
-            statusDiv.className = 'status-message ' + type + ' show';
-            setTimeout(() => {
-                statusDiv.classList.remove('show');
-            }, 5000);
+        function toggleExportDropdown() {
+            const dropdown = document.getElementById('exportDropdown');
+            dropdown.classList.toggle('show');
         }
 
-        // ============================================================
-        //  AUTO-REFRESH
-        // ============================================================
-        let refreshInterval = setInterval(() => {
-            if (document.getElementById('activityLogList').children.length > 0) {
-                loadActivityLog();
+        // Close dropdown on outside click
+        document.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('exportDropdown');
+            const btn = e.target.closest('.export-dropdown');
+            if (!btn) {
+                dropdown.classList.remove('show');
             }
-        }, 30000);
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load will be triggered by auth state change
         });
+
+        function getExportData(type) {
+            let data;
+            if (type === 'all') {
+                data = allActivities;
+            } else {
+                data = getFilteredActivities();
+            }
+
+            return data.map(activity => ({
+                'Admin Name': activity.adminName || 'Unknown',
+                'Position': activity.adminPosition || 'N/A',
+                'Email': activity.adminEmail || 'N/A',
+                'Action': activity.action || 'No action',
+                'Timestamp': activity.timestamp ? activity.timestamp.toDate().toLocaleString() : 'N/A'
+            }));
+        }
+
+        function exportCSV(type) {
+            const data = getExportData(type);
+            if (data.length === 0) {
+                showToast('No data to export!', 'error');
+                return;
+            }
+
+            const headers = Object.keys(data[0]);
+            const rows = [headers.join(',')];
+
+            data.forEach(row => {
+                const values = headers.map(header => {
+                    let value = row[header] || '';
+                    if (typeof value === 'string' && (value.includes(',') || value.includes('"') || value.includes(
+                            '\n'))) {
+                        value = `"${value.replace(/"/g, '""')}"`;
+                    }
+                    return value;
+                });
+                rows.push(values.join(','));
+            });
+
+            const csv = rows.join('\n');
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `activity_log_${type}_${new Date().toISOString().split('T')[0]}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            showToast(`✅ Exported ${data.length} activities as CSV`, 'success');
+            document.getElementById('exportDropdown').classList.remove('show');
+        }
+
+        function exportXLSX(type) {
+            const data = getExportData(type);
+            if (data.length === 0) {
+                showToast('No data to export!', 'error');
+                return;
+            }
+
+            const wb = XLSX.utils.book_new();
+            const ws = XLSX.utils.json_to_sheet(data);
+
+            // Auto column widths
+            const colWidths = [];
+            const headers = Object.keys(data[0]);
+            headers.forEach(key => {
+                let maxLen = key.length;
+                data.forEach(row => {
+                    const val = String(row[key] || '');
+                    if (val.length > maxLen) maxLen = val.length;
+                });
+                colWidths.push({ wch: Math.min(Math.max(maxLen + 2, 12), 40) });
+            });
+            ws['!cols'] = colWidths;
+
+            XLSX.utils.book_append_sheet(wb, ws, 'Activity Log');
+            const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+
+            const blob = new Blob([wbout], { type: 'application/octet-stream' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `activity_log_${type}_${new Date().toISOString().split('T')[0]}.xlsx`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            showToast(`✅ Exported ${data.length} activities as XLSX`, 'success');
+            document.getElementById('exportDropdown').classList.remove('show');
+        }
+
+        // ============================================================
+        //  TOAST NOTIFICATION
+        // ============================================================
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toastIcon');
+            const msg = document.getElementById('toastMessage');
+
+            toast.className = 'toast ' + type + ' show';
+            msg.textContent = message;
+
+            switch (type) {
+                case 'success':
+                    icon.className = 'fas fa-check-circle';
+                    break;
+                case 'error':
+                    icon.className = 'fas fa-exclamation-circle';
+                    break;
+                default:
+                    icon.className = 'fas fa-info-circle';
+            }
+
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // Auto-refresh every 60 seconds
+        let refreshInterval = setInterval(() => {
+            loadActivityLog();
+        }, 60000);
 
         window.addEventListener('beforeunload', function() {
             clearInterval(refreshInterval);
         });
-
-        // Click outside modal to close
-        window.onclick = function(e) {
-            const modal = document.getElementById('deleteConfirmModal');
-            if (e.target === modal) closeDeleteConfirmModal();
-        };
     </script>
 </body>
 </html>
