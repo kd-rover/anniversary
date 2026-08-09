@@ -82,24 +82,6 @@
         .tab-content { display:none; }
         .tab-content.active { display:block; }
 
-        /* Forgot password link */
-        .forgot-password-link {
-            text-align: right;
-            margin-top: -10px;
-            margin-bottom: 15px;
-        }
-        .forgot-password-link a {
-            color: #8B0000;
-            font-size: 14px;
-            text-decoration: none;
-            font-weight: 500;
-            cursor: pointer;
-        }
-        .forgot-password-link a:hover {
-            text-decoration: underline;
-            color: #CC0000;
-        }
-
         .back-to-login {
             text-align: center;
             margin-top: 15px;
@@ -158,6 +140,16 @@
         }
         .view-log-btn:hover { background:#138496; transform:translateY(-2px); }
 
+        /* ---------- MANAGE ADMINS BUTTON ---------- */
+        .manage-admins-btn {
+            padding:10px 20px; background:#8B0000; color:white;
+            border:none; border-radius:8px; cursor:pointer; font-size:14px;
+            display:flex; align-items:center; gap:8px; transition:all 0.3s;
+            font-weight:600;
+        }
+        .manage-admins-btn:hover { background:#CC0000; transform:translateY(-2px); }
+        .manage-admins-btn i { font-size:16px; }
+
         /* ---------- UPLOAD PANEL ---------- */
         .upload-panel {
             background:white; padding:30px; border-radius:15px;
@@ -204,11 +196,6 @@
         }
         .btn-upload:hover:not(:disabled) { background:#CC0000; transform:translateY(-2px); }
         .btn-upload:disabled { background:#cccccc; cursor:not-allowed; }
-        .btn-edit {
-            width:100%; padding:8px; background:#ffc107; color:#212529;
-            border:none; border-radius:5px; cursor:pointer; transition:all 0.3s; font-weight:600; margin-top:5px;
-        }
-        .btn-edit:hover { background:#e0a800; }
 
         .checkbox-group {
             display:flex; align-items:center; gap:10px;
@@ -342,6 +329,97 @@
         .btn-reject:hover { background:#da190b; }
         .approval-empty { text-align:center; padding:30px; color:#999; }
 
+        /* ---------- MANAGE ADMINS MODAL ---------- */
+        .manage-modal {
+            display:none; position:fixed; z-index:10000;
+            left:0; top:0; width:100%; height:100%;
+            background:rgba(0,0,0,0.7); backdrop-filter:blur(5px);
+            animation:fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity:0; }
+            to { opacity:1; }
+        }
+        .manage-modal-content {
+            background:white; max-width:800px; width:95%;
+            margin:40px auto; padding:30px; border-radius:15px;
+            box-shadow:0 20px 60px rgba(0,0,0,0.4);
+            max-height:85vh; overflow-y:auto;
+            animation:slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from { opacity:0; transform:translateY(-30px); }
+            to { opacity:1; transform:translateY(0); }
+        }
+        .manage-modal-header {
+            display:flex; justify-content:space-between; align-items:center;
+            border-bottom:2px solid #8B0000; padding-bottom:15px; margin-bottom:20px;
+        }
+        .manage-modal-header h2 {
+            color:#333; font-size:24px; display:flex; align-items:center; gap:10px;
+        }
+        .manage-modal-header h2 i { color:#8B0000; }
+        .manage-modal-header .close-btn {
+            background:#f44336; color:white; border:none;
+            border-radius:50%; width:40px; height:40px;
+            font-size:20px; cursor:pointer; transition:all 0.3s;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .manage-modal-header .close-btn:hover { background:#da190b; transform:rotate(90deg); }
+
+        .manage-admin-item {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:12px 15px; border-bottom:1px solid #f0f0f0; flex-wrap:wrap; gap:10px;
+        }
+        .manage-admin-item:last-child { border-bottom:none; }
+        .manage-admin-item .admin-info {
+            display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+        }
+        .manage-admin-item .admin-info .name {
+            font-weight:600; color:#333;
+        }
+        .manage-admin-item .admin-info .email {
+            color:#666; font-size:13px;
+        }
+        .manage-admin-item .admin-info .position-badge {
+            background:#e8f0fe; padding:2px 10px; border-radius:12px;
+            font-size:11px; color:#1a73e8;
+        }
+        .manage-admin-item .admin-info .role-badge {
+            padding:2px 10px; border-radius:12px; font-size:11px; font-weight:600;
+        }
+        .role-badge.super { background:#8B0000; color:white; }
+        .role-badge.regular { background:#e0e0e0; color:#333; }
+        .role-badge.pending { background:#ffc107; color:#333; }
+
+        .manage-admin-item .admin-actions {
+            display:flex; gap:6px; flex-wrap:wrap;
+        }
+        .manage-admin-item .admin-actions button {
+            padding:5px 12px; border:none; border-radius:5px;
+            cursor:pointer; font-weight:600; font-size:11px; transition:all 0.3s;
+        }
+        .btn-make-super { background:#8B0000; color:white; }
+        .btn-make-super:hover { background:#CC0000; }
+        .btn-remove-super { background:#ffc107; color:#333; }
+        .btn-remove-super:hover { background:#e0a800; }
+        .btn-delete-admin { background:#f44336; color:white; }
+        .btn-delete-admin:hover { background:#da190b; }
+        .btn-reset-password { background:#17a2b8; color:white; }
+        .btn-reset-password:hover { background:#138496; }
+
+        .manage-admin-empty {
+            text-align:center; padding:40px; color:#999;
+        }
+        .manage-admin-loading {
+            text-align:center; padding:40px; color:#666;
+        }
+        .manage-admin-loading .spinner-small {
+            border:3px solid #f3f3f3; border-top:3px solid #8B0000;
+            border-radius:50%; width:30px; height:30px;
+            animation:spin 1s linear infinite; margin:0 auto 10px;
+        }
+
         /* ---------- EDIT MODAL ---------- */
         .edit-modal {
             display:none; position:fixed; z-index:9999;
@@ -353,10 +431,6 @@
             padding:30px; border-radius:15px;
             box-shadow:0 20px 60px rgba(0,0,0,0.3);
             animation:slideDown 0.3s ease;
-        }
-        @keyframes slideDown {
-            from { opacity:0; transform:translateY(-30px); }
-            to { opacity:1; transform:translateY(0); }
         }
         .edit-modal-content h3 {
             color:#333; margin-bottom:20px; display:flex; align-items:center; gap:10px;
@@ -420,6 +494,7 @@
             .admin-email { width:100%; text-align:center; }
             .logout-btn { width:100%; justify-content:center; }
             .view-log-btn { width:100%; justify-content:center; }
+            .manage-admins-btn { width:100%; justify-content:center; }
             .upload-grid { grid-template-columns:1fr; }
             .preview-container { width:150px; height:150px; }
             .templates-grid { grid-template-columns:1fr; }
@@ -428,6 +503,10 @@
             .approval-item { flex-direction:column; align-items:flex-start; }
             .approval-item .approval-actions { width:100%; }
             .approval-item .approval-actions button { flex:1; }
+            .manage-modal-content { margin:20px auto; padding:20px; }
+            .manage-admin-item { flex-direction:column; align-items:flex-start; }
+            .manage-admin-item .admin-actions { width:100%; }
+            .manage-admin-item .admin-actions button { flex:1; }
         }
     </style>
 </head>
@@ -570,6 +649,10 @@
                 <a href="activitylog.html" target="_blank" class="view-log-btn">
                     <i class="fas fa-history"></i> View Activity Log
                 </a>
+                <!-- Manage Admins Button - Only for Super Admin -->
+                <button class="manage-admins-btn" id="manageAdminsBtn" style="display:none;" onclick="openManageAdminsModal()">
+                    <i class="fas fa-users-cog"></i> Manage Admins
+                </button>
                 <button class="logout-btn" onclick="handleLogout()">
                     <i class="fas fa-sign-out-alt"></i>
                     Logout
@@ -672,6 +755,25 @@
         </div>
     </div>
 
+    <!-- ========== MANAGE ADMINS MODAL ========== -->
+    <div class="manage-modal" id="manageAdminsModal">
+        <div class="manage-modal-content">
+            <div class="manage-modal-header">
+                <h2><i class="fas fa-users-cog"></i> Manage Admins</h2>
+                <button class="close-btn" onclick="closeManageAdminsModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="manageAdminList">
+                <div class="manage-admin-loading">
+                    <div class="spinner-small"></div>
+                    Loading admins...
+                </div>
+            </div>
+            <div id="manageAdminStatus" class="status"></div>
+        </div>
+    </div>
+
     <!-- ========== EDIT MODAL ========== -->
     <div class="edit-modal" id="editModal">
         <div class="edit-modal-content">
@@ -725,13 +827,13 @@
         //  FIREBASE CONFIG
         // ============================================================
         const firebaseConfig = {
-  apiKey: "AIzaSyAZqCBb6zuD3uzhUhE8Ccbeh66wIJpOMSM",
-  authDomain: "kdr-anniversary.firebaseapp.com",
-  projectId: "kdr-anniversary",
-  storageBucket: "kdr-anniversary.firebasestorage.app",
-  messagingSenderId: "744360884581",
-  appId: "1:744360884581:web:2c51e2dd3b322288c2c98c"
-};
+            apiKey: "AIzaSyAZqCBb6zuD3uzhUhE8Ccbeh66wIJpOMSM",
+            authDomain: "kdr-anniversary.firebaseapp.com",
+            projectId: "kdr-anniversary",
+            storageBucket: "kdr-anniversary.firebasestorage.app",
+            messagingSenderId: "744360884581",
+            appId: "1:744360884581:web:2c51e2dd3b322288c2c98c"
+        };
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
@@ -779,10 +881,13 @@
                             loadTemplates();
                             loadDefaultCaption();
                             if (currentAdminData.isSuperAdmin) {
+                                // Show approvals and Manage Admins button for Super Admin
                                 document.getElementById('approvalsSection').style.display = 'block';
+                                document.getElementById('manageAdminsBtn').style.display = 'flex';
                                 loadPendingApprovals();
                             } else {
                                 document.getElementById('approvalsSection').style.display = 'none';
+                                document.getElementById('manageAdminsBtn').style.display = 'none';
                             }
                             return;
                         } else {
@@ -832,6 +937,10 @@
             hideError();
 
             try {
+                // Check if this is the first admin (no approved admins exist)
+                const adminSnapshot = await db.collection('adminUsers').get();
+                const isFirstAdmin = adminSnapshot.empty;
+
                 const userCred = await auth.createUserWithEmailAndPassword(email, password);
                 const user = userCred.user;
 
@@ -839,8 +948,8 @@
                     name: name,
                     email: email,
                     Position: Position,
-                    approved: false,
-                    isSuperAdmin: false,
+                    approved: isFirstAdmin ? true : false,
+                    isSuperAdmin: isFirstAdmin ? true : false,
                     createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                     uid: user.uid
                 });
@@ -849,12 +958,18 @@
                     adminName: name,
                     adminPosition: Position,
                     adminEmail: email,
-                    action: 'Registered as admin (pending approval)',
+                    action: isFirstAdmin ? 'Registered as Super Admin (First Admin)' :
+                        'Registered as admin (pending approval)',
                     timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 });
 
+                if (isFirstAdmin) {
+                    showInfo('🎉 You are the first admin! You have been automatically approved as Super Admin.');
+                } else {
+                    showInfo('Registration successful! Your account is pending approval. You will be notified when approved.');
+                }
+
                 await auth.signOut();
-                showInfo('Registration successful! Your account is pending approval. You will be notified when approved.');
                 btn.innerHTML = '<i class="fas fa-user-plus"></i> Register as Admin';
                 btn.disabled = false;
                 document.getElementById('regName').value = '';
@@ -952,7 +1067,6 @@
                 btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Reset Link';
                 btn.disabled = false;
                 document.getElementById('forgotEmail').value = '';
-                // Optionally switch back to login after a delay
                 setTimeout(() => switchTab('loginTab'), 3000);
             } catch (error) {
                 console.error('Forgot password error:', error);
@@ -1108,6 +1222,244 @@
         }
 
         // ============================================================
+        //  MANAGE ADMINS MODAL
+        // ============================================================
+        function openManageAdminsModal() {
+            document.getElementById('manageAdminsModal').style.display = 'block';
+            document.getElementById('manageAdminStatus').className = 'status';
+            document.getElementById('manageAdminStatus').style.display = 'none';
+            loadManageAdminList();
+        }
+
+        function closeManageAdminsModal() {
+            document.getElementById('manageAdminsModal').style.display = 'none';
+        }
+
+        async function loadManageAdminList() {
+            const container = document.getElementById('manageAdminList');
+            container.innerHTML = `
+                <div class="manage-admin-loading">
+                    <div class="spinner-small"></div>
+                    Loading admins...
+                </div>
+            `;
+
+            try {
+                const snapshot = await db.collection('adminUsers')
+                    .orderBy('createdAt', 'desc')
+                    .get();
+
+                if (snapshot.empty) {
+                    container.innerHTML = '<div class="manage-admin-empty">No admins found</div>';
+                    return;
+                }
+
+                let html = '';
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    if (!data.name) return;
+
+                    const isSuper = data.isSuperAdmin || false;
+                    const isApproved = data.approved || false;
+                    const isCurrentUser = doc.id === currentUser.uid;
+
+                    let roleBadge = '';
+                    if (!isApproved) {
+                        roleBadge = '<span class="role-badge pending">⏳ Pending</span>';
+                    } else if (isSuper) {
+                        roleBadge = '<span class="role-badge super">👑 Super Admin</span>';
+                    } else {
+                        roleBadge = '<span class="role-badge regular">Admin</span>';
+                    }
+
+                    let actionsHtml = '';
+
+                    if (isApproved) {
+                        if (isSuper) {
+                            if (!isCurrentUser) {
+                                actionsHtml += `
+                                    <button class="btn-remove-super" onclick="removeSuperAdminModal('${doc.id}')">
+                                        <i class="fas fa-user-minus"></i> Remove Super
+                                    </button>
+                                `;
+                            }
+                        } else {
+                            actionsHtml += `
+                                <button class="btn-make-super" onclick="makeSuperAdminModal('${doc.id}')">
+                                    <i class="fas fa-crown"></i> Make Super
+                                </button>
+                            `;
+                        }
+                        // Reset Password button for all approved admins
+                        actionsHtml += `
+                            <button class="btn-reset-password" onclick="sendPasswordResetModal('${doc.id}')">
+                                <i class="fas fa-key"></i> Reset Password
+                            </button>
+                        `;
+                    }
+
+                    if (!isCurrentUser) {
+                        actionsHtml += `
+                            <button class="btn-delete-admin" onclick="deleteAdminModal('${doc.id}')">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                        `;
+                    }
+
+                    html += `
+                        <div class="manage-admin-item" data-uid="${doc.id}">
+                            <div class="admin-info">
+                                <span class="name"><i class="fas fa-user"></i> ${data.name}</span>
+                                <span class="email"><i class="fas fa-envelope"></i> ${data.email}</span>
+                                <span class="position-badge"><i class="fas fa-users"></i> ${data.Position || 'N/A'}</span>
+                                ${roleBadge}
+                                ${isCurrentUser ? '<span style="font-size:11px; color:#8B0000; font-weight:600;">(You)</span>' : ''}
+                            </div>
+                            <div class="admin-actions">
+                                ${actionsHtml}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = html;
+
+            } catch (error) {
+                console.error('Load manage admin list error:', error);
+                container.innerHTML = `<div class="manage-admin-empty">Error loading admins: ${error.message}</div>`;
+            }
+        }
+
+        // ============================================================
+        //  MANAGE ADMINS ACTIONS
+        // ============================================================
+        async function makeSuperAdminModal(uid) {
+            if (!confirm('Make this admin a Super Admin? They will have full control over the system.')) return;
+            try {
+                const doc = await db.collection('adminUsers').doc(uid).get();
+                const data = doc.data();
+
+                await db.collection('adminUsers').doc(uid).update({
+                    isSuperAdmin: true,
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                await db.collection('activityLog').add({
+                    adminName: data.name,
+                    adminPosition: data.Position,
+                    adminEmail: data.email,
+                    action: 'Promoted to Super Admin by ' + currentAdminData.name,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    promotedBy: currentAdminData.name
+                });
+
+                showManageStatus('✅ Admin promoted to Super Admin!', 'success');
+                loadManageAdminList();
+
+            } catch (error) {
+                console.error('Make super admin error:', error);
+                showManageStatus('❌ Error: ' + error.message, 'error');
+            }
+        }
+
+        async function removeSuperAdminModal(uid) {
+            if (!confirm('Remove Super Admin status from this admin?')) return;
+            try {
+                const doc = await db.collection('adminUsers').doc(uid).get();
+                const data = doc.data();
+
+                await db.collection('adminUsers').doc(uid).update({
+                    isSuperAdmin: false,
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                await db.collection('activityLog').add({
+                    adminName: data.name,
+                    adminPosition: data.Position,
+                    adminEmail: data.email,
+                    action: 'Super Admin status removed by ' + currentAdminData.name,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    removedBy: currentAdminData.name
+                });
+
+                showManageStatus('✅ Super Admin status removed.', 'success');
+                loadManageAdminList();
+
+            } catch (error) {
+                console.error('Remove super admin error:', error);
+                showManageStatus('❌ Error: ' + error.message, 'error');
+            }
+        }
+
+        async function sendPasswordResetModal(uid) {
+            if (!confirm('Send password reset email to this admin?')) return;
+            try {
+                const doc = await db.collection('adminUsers').doc(uid).get();
+                const data = doc.data();
+
+                await auth.sendPasswordResetEmail(data.email);
+
+                await db.collection('activityLog').add({
+                    adminName: data.name,
+                    adminPosition: data.Position,
+                    adminEmail: data.email,
+                    action: 'Password reset email sent by ' + currentAdminData.name,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    sentBy: currentAdminData.name
+                });
+
+                showManageStatus('✅ Password reset email sent to ' + data.email, 'success');
+
+            } catch (error) {
+                console.error('Send password reset error:', error);
+                let msg = 'Failed to send reset email. ';
+                if (error.code === 'auth/user-not-found') {
+                    msg += 'User not found in Firebase Auth.';
+                } else {
+                    msg += error.message;
+                }
+                showManageStatus('❌ ' + msg, 'error');
+            }
+        }
+
+        async function deleteAdminModal(uid) {
+            if (!confirm('⚠️ Are you sure you want to delete this admin account? This action cannot be undone!')) return;
+            try {
+                const doc = await db.collection('adminUsers').doc(uid).get();
+                const data = doc.data();
+
+                await db.collection('adminUsers').doc(uid).delete();
+
+                await db.collection('activityLog').add({
+                    adminName: data.name || 'Unknown',
+                    adminPosition: data.Position || 'Unknown',
+                    adminEmail: data.email || 'Unknown',
+                    action: 'Admin account deleted by ' + currentAdminData.name,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    deletedBy: currentAdminData.name
+                });
+
+                showManageStatus('✅ Admin deleted successfully.', 'success');
+                loadManageAdminList();
+                loadPendingApprovals();
+
+            } catch (error) {
+                console.error('Delete admin error:', error);
+                showManageStatus('❌ Error: ' + error.message, 'error');
+            }
+        }
+
+        function showManageStatus(message, type) {
+            const statusDiv = document.getElementById('manageAdminStatus');
+            statusDiv.textContent = message;
+            statusDiv.className = 'status ' + type + ' show';
+            statusDiv.style.display = 'flex';
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // ============================================================
         //  DEFAULT CAPTION MANAGEMENT
         // ============================================================
         async function loadDefaultCaption() {
@@ -1117,7 +1469,6 @@
                     defaultCaption = doc.data().caption || '';
                     document.getElementById('defaultCaption').value = defaultCaption;
                 } else {
-                    // Create default if not exists
                     await db.collection('settings').doc('anniversaryCaption').set({
                         caption: 'Happy Anniversary! 🎉',
                         updatedAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -1726,9 +2077,12 @@
             }
         });
 
+        // Close modal on outside click
         window.onclick = function(e) {
-            const modal = document.getElementById('editModal');
-            if (e.target === modal) closeEditModal();
+            const editModal = document.getElementById('editModal');
+            if (e.target === editModal) closeEditModal();
+            const manageModal = document.getElementById('manageAdminsModal');
+            if (e.target === manageModal) closeManageAdminsModal();
         };
     </script>
 </body>
