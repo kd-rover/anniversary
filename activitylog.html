@@ -455,7 +455,7 @@
                 <button class="btn-danger" id="deleteAllBtn" onclick="deleteAllActivities()" style="display:none;">
                     <i class="fas fa-trash-alt"></i> Delete All
                 </button>
-                <a href="admin-anniversary.html" class="back-btn">
+                <a href="admin.html" class="back-btn">
                     <i class="fas fa-arrow-left"></i> Back
                 </a>
             </div>
@@ -565,13 +565,13 @@
                         loadAdminList();
                     } else {
                         showToast('Unauthorized access!', 'error');
-                        window.location.href = 'admin-anniversary.html';
+                        window.location.href = 'admin.html';
                     }
                 } catch (e) {
                     console.error('Auth check error:', e);
                 }
             } else {
-                window.location.href = 'admin-anniversary.html';
+                window.location.href = 'admin.html';
             }
         });
 
