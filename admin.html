@@ -1794,104 +1794,105 @@
         //  REGISTER - FIXED: Use 'Position' (capital P) to match Firestore
         // ============================================================
         document.getElementById('registerForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('regName').value.trim();
-            const email = document.getElementById('regEmail').value.trim();
-            const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('regConfirmPassword').value;
-            const position = document.getElementById('regPosition').value;
+    e.preventDefault();
+    const name = document.getElementById('regName').value.trim();
+    const email = document.getElementById('regEmail').value.trim();
+    const password = document.getElementById('regPassword').value;
+    const confirmPassword = document.getElementById('regConfirmPassword').value;
+    const position = document.getElementById('regPosition').value;
 
-            if (!name || !email || !password || !position) {
-                Toast.show('Please fill in all fields', 'error');
-                return;
-            }
-            if (password.length < 6) {
-                Toast.show('Password must be at least 6 characters', 'error');
-                return;
-            }
-            if (password !== confirmPassword) {
-                Toast.show('Passwords do not match', 'error');
-                return;
-            }
+    if (!name || !email || !password || !position) {
+        Toast.show('Please fill in all fields', 'error');
+        return;
+    }
+    if (password.length < 6) {
+        Toast.show('Password must be at least 6 characters', 'error');
+        return;
+    }
+    if (password !== confirmPassword) {
+        Toast.show('Passwords do not match', 'error');
+        return;
+    }
 
-            const btn = document.getElementById('registerBtn');
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
+    const btn = document.getElementById('registerBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Registering...';
 
-            try {
-                const adminSnapshot = await db.collection('adminUsers').get();
-                const isFirstAdmin = adminSnapshot.empty;
+    try {
+        const adminSnapshot = await db.collection('adminUsers').get();
+        const isFirstAdmin = adminSnapshot.empty;
 
-                const userCred = await auth.createUserWithEmailAndPassword(email, password);
-                const user = userCred.user;
+        const userCred = await auth.createUserWithEmailAndPassword(email, password);
+        const user = userCred.user;
 
-                // ✅ FIXED: Use 'Position' (capital P) to match your Firestore data
-                await db.collection('adminUsers').doc(user.uid).set({
-                    name: name,
-                    email: email,
-                    Position: position,  // ← Changed from 'position' to 'Position'
-                    approved: isFirstAdmin ? true : false,
-                    isSuperAdmin: isFirstAdmin ? true : false,
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                    uid: user.uid
-                });
-
-                // Also save to regPosition collection if you want
-                await db.collection('regPosition').doc(user.uid).set({
-                    name: name,
-                    email: email,
-                    position: position,
-                    uid: user.uid,
-                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
-                });
-
-                await db.collection('activityLog').add({
-                    adminName: name,
-                    adminPosition: position,
-                    adminEmail: email,
-                    action: isFirstAdmin ? 'Registered as Super Admin (First Admin)' :
-                        'Registered as admin (pending approval)',
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-                });
-
-                if (isFirstAdmin) {
-                    Toast.show('🎉 You are the first admin! You have been automatically approved as Super Admin.',
-                        'success');
-                } else {
-                    Toast.show('Registration successful! Your account is pending approval.', 'success');
-                }
-
-                await auth.signOut();
-                btn.innerHTML = '<i class="fas fa-user-plus"></i> Register';
-                btn.disabled = false;
-                document.getElementById('regName').value = '';
-                document.getElementById('regEmail').value = '';
-                document.getElementById('regPassword').value = '';
-                document.getElementById('regConfirmPassword').value = '';
-                document.getElementById('regPosition').value = '';
-                authContainer.classList.remove("right-panel-active");
-
-            } catch (error) {
-                console.error('Registration error:', error);
-                let msg = 'Registration failed. ';
-                switch (error.code) {
-                    case 'auth/email-already-in-use':
-                        msg += 'Email already registered. Please login.';
-                        break;
-                    case 'auth/invalid-email':
-                        msg += 'Invalid email format.';
-                        break;
-                    case 'auth/weak-password':
-                        msg += 'Password too weak. Use at least 6 characters.';
-                        break;
-                    default:
-                        msg += error.message;
-                }
-                Toast.show(msg, 'error');
-                btn.innerHTML = '<i class="fas fa-user-plus"></i> Register';
-                btn.disabled = false;
-            }
+        // ✅ FIXED: Use 'Position' (capital P) to match your Firestore data
+        await db.collection('adminUsers').doc(user.uid).set({
+            name: name,
+            email: email,
+            Position: position,  // ← Capital 'P'
+            approved: isFirstAdmin ? true : false,
+            isSuperAdmin: isFirstAdmin ? true : false,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            uid: user.uid
         });
+
+        await db.collection('regPosition').doc(user.uid).set({
+            name: name,
+            email: email,
+            position: position,
+            uid: user.uid,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        await db.collection('activityLog').add({
+            adminName: name,
+            adminPosition: position,
+            adminEmail: email,
+            action: isFirstAdmin ? 'Registered as Super Admin (First Admin)' :
+                'Registered as admin (pending approval)',
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        if (isFirstAdmin) {
+            Toast.show('🎉 You are the first admin! You have been automatically approved as Super Admin.',
+                'success');
+        } else {
+            Toast.show('Registration successful! Your account is pending approval.', 'success');
+        }
+
+        // ✅ FIX: Don't sign out - let the user stay logged in
+        btn.innerHTML = '<i class="fas fa-user-plus"></i> Register';
+        btn.disabled = false;
+        document.getElementById('regName').value = '';
+        document.getElementById('regEmail').value = '';
+        document.getElementById('regPassword').value = '';
+        document.getElementById('regConfirmPassword').value = '';
+        document.getElementById('regPosition').value = '';
+        authContainer.classList.remove("right-panel-active");
+        
+        // The onAuthStateChanged will now properly redirect
+
+    } catch (error) {
+        console.error('Registration error:', error);
+        let msg = 'Registration failed. ';
+        switch (error.code) {
+            case 'auth/email-already-in-use':
+                msg += 'Email already registered. Please login.';
+                break;
+            case 'auth/invalid-email':
+                msg += 'Invalid email format.';
+                break;
+            case 'auth/weak-password':
+                msg += 'Password too weak. Use at least 6 characters.';
+                break;
+            default:
+                msg += error.message;
+        }
+        Toast.show(msg, 'error');
+        btn.innerHTML = '<i class="fas fa-user-plus"></i> Register';
+        btn.disabled = false;
+    }
+});
 
         // ============================================================
         //  LOGIN
