@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms and Conditions · Kishoreganj District Rover</title>
+    
+    <!-- 🔥 ফেভিকন (ব্রাউজার ট্যাবের আইকন) -->
+    <link rel="icon" href="https://i.ibb.co/fdHDN5k0/1000000660.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/fdHDN5k0/1000000660.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8B0000 0%, #CC0000 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+        }
+        .terms-card {
+            max-width: 1000px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            animation: slideUp 0.5s ease;
+            transition: transform 0.2s;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .terms-header {
+            background: linear-gradient(135deg, #8B0000 0%, #b30000 100%);
+            padding: 28px 35px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            border-bottom: 4px solid #ffcc00;
+        }
+        .terms-header i {
+            font-size: 38px;
+            color: #ffcc00;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+        }
+        .terms-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            flex: 1;
+        }
+        .terms-header .badge {
+            background: rgba(255, 215, 0, 0.2);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #ffcc00;
+            color: #ffecb3;
+        }
+        .terms-body {
+            padding: 35px 40px 40px;
+            background: #fcf9f9;
+        }
+        .terms-body .last-updated {
+            display: flex;
+            justify-content: flex-end;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 22px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+        }
+        .terms-body .last-updated i {
+            margin-right: 8px;
+            color: #8B0000;
+        }
+        .terms-scroll {
+            max-height: 520px;
+            overflow-y: auto;
+            padding-right: 8px;
+            margin-bottom: 20px;
+        }
+        .terms-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .terms-scroll::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+        .terms-scroll::-webkit-scrollbar-thumb {
+            background: #8B0000;
+            border-radius: 10px;
+        }
+        .terms-scroll h2 {
+            font-size: 20px;
+            color: #8B0000;
+            margin: 28px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f0e0e0;
+            padding-bottom: 8px;
+        }
+        .terms-scroll h2:first-of-type {
+            margin-top: 0;
+        }
+        .terms-scroll h2 i {
+            color: #8B0000;
+            font-size: 22px;
+            width: 32px;
+            text-align: center;
+        }
+        .terms-scroll p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #2d2d2d;
+            margin-bottom: 14px;
+            padding-left: 8px;
+        }
+        .terms-scroll ul, .terms-scroll ol {
+            padding-left: 32px;
+            margin: 12px 0 18px 0;
+            color: #2d2d2d;
+        }
+        .terms-scroll ul li, .terms-scroll ol li {
+            margin-bottom: 10px;
+            font-size: 15.5px;
+            line-height: 1.6;
+        }
+        .terms-scroll ul li i {
+            color: #8B0000;
+            margin-right: 10px;
+            width: 18px;
+        }
+        .terms-scroll .highlight-box {
+            background: #fff0f0;
+            border-left: 6px solid #8B0000;
+            padding: 18px 22px;
+            border-radius: 12px;
+            margin: 24px 0;
+            font-weight: 500;
+            color: #3d1a1a;
+        }
+        .terms-scroll .highlight-box i {
+            color: #8B0000;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        .terms-scroll .small-note {
+            font-size: 14px;
+            color: #666;
+            background: #f8f8f8;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin: 12px 0;
+        }
+        .terms-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-top: 12px;
+            padding-top: 20px;
+            border-top: 2px solid #eaeaea;
+        }
+        .terms-footer .btn-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 12px 34px;
+            border: none;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            background: #f0f0f0;
+            color: #333;
+        }
+        .btn-primary {
+            background: #8B0000;
+            color: white;
+            box-shadow: 0 4px 14px rgba(139, 0, 0, 0.3);
+        }
+        .btn-primary:hover {
+            background: #a30000;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(139, 0, 0, 0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #8B0000;
+            color: #8B0000;
+        }
+        .btn-outline:hover {
+            background: #8B0000;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: #e8e8e8;
+            color: #444;
+        }
+        .btn-secondary:hover {
+            background: #d5d5d5;
+            transform: translateY(-2px);
+        }
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: #1f1f1f;
+        }
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: #8B0000;
+            cursor: pointer;
+        }
+        .checkbox-wrapper label {
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .checkbox-wrapper .required-star {
+            color: #8B0000;
+            font-weight: 700;
+            margin-left: 2px;
+        }
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1e1e1e;
+            color: white;
+            padding: 14px 26px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.35s ease;
+            z-index: 9999;
+            max-width: 420px;
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .toast.success {
+            background: #1e7e34;
+        }
+        .toast.error {
+            background: #b02a37;
+        }
+        .toast i {
+            font-size: 22px;
+        }
+        @media (max-width: 700px) {
+            .terms-body { padding: 20px 18px; }
+            .terms-header { padding: 20px 18px; }
+            .terms-header h1 { font-size: 22px; }
+            .terms-footer { flex-direction: column; align-items: stretch; }
+            .btn-group { justify-content: center; }
+            .btn { justify-content: center; padding: 12px 20px; }
+            .checkbox-wrapper { justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            .terms-scroll { max-height: 380px; }
+            .terms-scroll h2 { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="terms-card">
+        <!-- Header -->
+        <div class="terms-header">
+            <i class="fas fa-file-contract"></i>
+            <h1>Terms &amp; Conditions</h1>
+            <span class="badge"><i class="fas fa-shield-alt"></i> Admin Registration</span>
+        </div>
+
+        <!-- Body -->
+        <div class="terms-body">
+            <div class="last-updated">
+                <i class="far fa-calendar-alt"></i> Last updated: 14 August 2026
+            </div>
+
+            <div class="terms-scroll" id="termsScroll">
+                <h2><i class="fas fa-user-check"></i> 1. Acceptance of Terms</h2>
+                <p>
+                    By registering as an administrator of the <strong>Kishoreganj District Rover</strong> anniversary platform, 
+                    you agree to comply with and be bound by these Terms and Conditions. 
+                    If you do not agree with any part of these terms, you must not proceed with registration.
+                </p>
+
+                <h2><i class="fas fa-users-cog"></i> 2. Admin Roles &amp; Responsibilities</h2>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> You are granted access to manage templates, upload images, and moderate content.</li>
+                    <li><i class="fas fa-check-circle"></i> You must maintain the confidentiality of your login credentials.</li>
+                    <li><i class="fas fa-check-circle"></i> You are responsible for all activities that occur under your account.</li>
+                    <li><i class="fas fa-check-circle"></i> You shall not use admin privileges for any unlawful or malicious purpose.</li>
+                </ul>
+
+                <h2><i class="fas fa-upload"></i> 3. Content Moderation &amp; Publishing</h2>
+                <ul>
+                    <li><i class="fas fa-image"></i> All uploaded images (templates, backgrounds, frames) must be appropriate and free from copyright infringement.</li>
+                    <li><i class="fas fa-font"></i> Captions and descriptions must be respectful and in alignment with the values of Kishoreganj District Rover.</li>
+                    <li><i class="fas fa-ban"></i> We reserve the right to remove any content that violates these terms or is deemed inappropriate.</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <i class="fas fa-gavel"></i> 
+                    <strong>Super Admin Privilege:</strong> Super Admins have the authority to approve/reject admin registrations, manage all admins, and delete any content. This power must be exercised responsibly.
+                </div>
+
+                <h2><i class="fas fa-database"></i> 4. Data &amp; Privacy</h2>
+                <ul>
+                    <li><i class="fas fa-user-lock"></i> Your personal data (name, email, position) will be stored securely in Firebase.</li>
+                    <li><i class="fas fa-eye"></i> Your activity (uploads, edits, deletions) may be logged for audit purposes.</li>
+                    <li><i class="fas fa-share-alt"></i> We do not share your personal data with third parties without your explicit consent.</li>
+                </ul>
+
+                <h2><i class="fas fa-shield-alt"></i> 5. Account Security</h2>
+                <ul>
+                    <li><i class="fas fa-key"></i> You are responsible for maintaining the security of your password and account.</li>
+                    <li><i class="fas fa-bell"></i> Notify us immediately if you suspect any unauthorised access to your account.</li>
+                    <li><i class="fas fa-clock"></i> Inactive accounts may be suspended after prolonged inactivity.</li>
+                </ul>
+
+                <h2><i class="fas fa-handshake"></i> 6. Code of Conduct</h2>
+                <ul>
+                    <li><i class="fas fa-smile"></i> Maintain professionalism and respect towards all admins, users, and the organisation.</li>
+                    <li><i class="fas fa-comment"></i> Do not use admin tools to harass, bully, or discriminate against others.</li>
+                    <li><i class="fas fa-flag"></i> Report any misconduct to the Super Admin team.</li>
+                </ul>
+
+                <div class="small-note">
+                    <i class="fas fa-info-circle" style="color:#8B0000;"></i> 
+                    <strong>Note:</strong> These terms are subject to change. You will be notified of any material changes via email or dashboard notice.
+                </div>
+
+                <h2><i class="fas fa-gavel"></i> 7. Termination</h2>
+                <p>
+                    We reserve the right to suspend or terminate your admin access at any time, with or without notice, 
+                    for conduct that we believe violates these Terms or is harmful to the platform or community.
+                </p>
+
+                <h2><i class="fas fa-phone-alt"></i> 8. Contact</h2>
+                <p>
+                    If you have any questions about these Terms, please contact us at: 
+                    <strong><i class="fas fa-envelope"></i> kdrover1990@gmail.com</strong>
+                </p>
+                <p style="margin-top: 8px; color: #8B0000;">
+                    <i class="fas fa-flag"></i> Kishoreganj District Rover · Established 1990
+                </p>
+            </div>
+
+            <!-- Footer with actions -->
+            <div class="terms-footer">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="agreeCheck" />
+                    <label for="agreeCheck">
+                        I have read and agree to the <strong>Terms &amp; Conditions</strong> 
+                        <span class="required-star">*</span>
+                    </label>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-outline" onclick="window.history.back()">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button class="btn btn-primary" id="acceptBtn" disabled>
+                        <i class="fas fa-check-circle"></i> Accept &amp; Proceed
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle" id="toastIcon"></i>
+        <span id="toastMessage">Success</span>
+    </div>
+
+    <script>
+        (function() {
+            const agreeCheck = document.getElementById('agreeCheck');
+            const acceptBtn = document.getElementById('acceptBtn');
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+
+            // Enable/disable accept button based on checkbox
+            agreeCheck.addEventListener('change', function() {
+                acceptBtn.disabled = !this.checked;
+            });
+
+            // Accept & proceed
+            acceptBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (!agreeCheck.checked) {
+                    showToast('Please agree to the Terms & Conditions first.', 'error');
+                    return;
+                }
+
+                // Simulate acceptance – redirect back to admin registration with a flag
+                // In your real implementation, you can set a session/localStorage flag and redirect.
+                // Here we redirect to admin.html?mode=register&accepted=true
+                const url = new URL('admin.html', window.location.href);
+                url.searchParams.set('mode', 'register');
+                url.searchParams.set('accepted', 'true');
+                window.location.href = url.toString();
+            });
+
+            // Toast helper
+            function showToast(message, type = 'success') {
+                toastMsg.textContent = message;
+                toast.className = 'toast show';
+                if (type === 'success') {
+                    toast.classList.add('success');
+                    toastIcon.className = 'fas fa-check-circle';
+                } else if (type === 'error') {
+                    toast.classList.add('error');
+                    toastIcon.className = 'fas fa-exclamation-circle';
+                } else {
+                    toastIcon.className = 'fas fa-info-circle';
+                }
+                clearTimeout(toast._timer);
+                toast._timer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 5000);
+            }
+
+            // Check if user came from registration without acceptance
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('mode') === 'register' && urlParams.get('accepted') === 'true') {
+                // If already accepted, we could auto-redirect, but we let the user click again.
+                // We show a small info toast.
+                setTimeout(() => {
+                    showToast('✅ Terms accepted. You can now complete registration.', 'success');
+                }, 400);
+            }
+
+            // Optional: if the checkbox is unchecked on load, ensure button is disabled
+            if (!agreeCheck.checked) {
+                acceptBtn.disabled = true;
+            }
+
+            // Prevent accidental navigation without acceptance
+            window.addEventListener('beforeunload', function(e) {
+                if (agreeCheck.checked) {
+                    // user accepted, allow navigation
+                    return;
+                }
+                // If checkbox not checked, show a confirmation message
+                e.preventDefault();
+                e.returnValue = 'You have not accepted the Terms & Conditions. Are you sure you want to leave?';
+            });
+
+        })();
+    </script>
+</body>
+</html>
